@@ -36,7 +36,6 @@ export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeNa
     </NavigationContainer>
   );
 }
-
 /**
  * A root stack navigator is often used for displaying modals on top of all other content.
  * https://reactnavigation.org/docs/modal
@@ -59,12 +58,10 @@ function RootNavigator() {
 const HomeStack = createNativeStackNavigator<HomeStackPramList>();
 
 function HomeStackScreen() {
-  return <HomeStack.Navigator initialRouteName='Home'>
+  return <HomeStack.Navigator initialRouteName='Home' screenOptions={{headerShown: false}}>
     <HomeStack.Screen name='Home' component={HomeScreen} />
     <HomeStack.Screen name='AppointmentDetails' component={AppointmentDetailScreen} />
     <HomeStack.Screen name='VirtualQueue' component={VirtualQueueScreen} />
-    {/* VirtualQueueScreen */}
-    {/* AppointmentDetailScreen */}
   </HomeStack.Navigator>
 } 
 
@@ -72,12 +69,11 @@ function HomeStackScreen() {
 const BookStack = createNativeStackNavigator<BookStackPramList>();
 
 function BookStackScreen() {
-  return <BookStack.Navigator initialRouteName='ClinicCategory'>
+  return <BookStack.Navigator initialRouteName='ClinicCategory' screenOptions={{headerShown: false}}>
     <BookStack.Screen name='ClinicCategory' component={ClinicCategoryScreen} />
     <BookStack.Screen name='AvailableClinics' component={AvailableClinicsScreen} />
     <BookStack.Screen name='AppointmentTime' component={AppointmentTimeScreen} />
     <BookStack.Screen name='AppointmentConfirmation' component={AppointmentConfirmationScreen} />
-
   </BookStack.Navigator>
 } 
 /**
