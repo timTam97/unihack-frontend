@@ -14,6 +14,7 @@
     "preset": "jest-expo"
   },
   "dependencies": {
+    "@expo-google-fonts/lato": "^0.2.2",
     "@expo/vector-icons": "^12.0.0",
     "@react-navigation/bottom-tabs": "^6.0.5",
     "@react-navigation/native": "^6.0.2",
@@ -28,10 +29,12 @@
     "expo-web-browser": "~10.1.0",
     "react": "17.0.1",
     "react-dom": "17.0.1",
+    "react-loading-dot": "^1.0.6",
     "react-native": "0.64.3",
     "react-native-elements": "^3.4.2",
     "react-native-paper": "^4.11.2",
     "react-native-safe-area-context": "^3.3.2",
+    "react-native-loading-dots": "^1.2.0",
     "react-native-screens": "~3.10.1",
     "react-native-web": "0.17.1"
   },
@@ -39,8 +42,8 @@
     "@babel/core": "^7.12.9",
     "@types/react": "~17.0.21",
     "@types/react-native": "~0.64.12",
-    "jest-expo": "~44.0.1",
     "jest": "^26.6.3",
+    "jest-expo": "~44.0.1",
     "react-test-renderer": "17.0.1",
     "typescript": "~4.3.5"
   },

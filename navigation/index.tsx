@@ -34,7 +34,6 @@ export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeNa
     </NavigationContainer>
   );
 }
-
 /**
  * A root stack navigator is often used for displaying modals on top of all other content.
  * https://reactnavigation.org/docs/modal
@@ -61,8 +60,6 @@ function HomeStackScreen() {
     <HomeStack.Screen name='Home' component={HomeScreen} />
     <HomeStack.Screen name='AppointmentDetails' component={AppointmentDetailScreen} />
     <HomeStack.Screen name='VirtualQueue' component={VirtualQueueScreen} />
-    {/* VirtualQueueScreen */}
-    {/* AppointmentDetailScreen */}
   </HomeStack.Navigator>
 } 
 
@@ -75,7 +72,6 @@ function BookStackScreen() {
     <BookStack.Screen name='SearchClinics' component={SearchClinicsScreen} />
     <BookStack.Screen name='AppointmentTime' component={AppointmentTimeScreen} />
     <BookStack.Screen name='AppointmentConfirmation' component={AppointmentConfirmationScreen} />
-
   </BookStack.Navigator>
 } 
 /**
