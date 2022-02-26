@@ -21,7 +21,7 @@ import HomeScreen from '../screens/HomeScreen';
 import IntroScreen from '../screens/IntroScreen';
 import ModalScreen from '../screens/ModalScreen';
 import NotFoundScreen from '../screens/NotFoundScreen';
-import TabOneScreen from '../screens/TabOneScreen';
+import TabOneScreen from '../screens/SearchClinicsScreen';
 import TabTwoScreen from '../screens/TabTwoScreen';
 import VirtualQueueScreen from '../screens/VirtualQueueScreen';
 import { BookStackPramList, HomeStackPramList, RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
