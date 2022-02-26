@@ -12,7 +12,7 @@ export default function ClinicCategoryScreen({ navigation }: Props) {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>ClinicCategoryScreen</Text>
-      <Button title='AvailableClinics' onPress={() => {navigation.navigate('AvailableClinics', {category: 'Cardiology'})}} />
+      <Button title='SearchClinics' onPress={() => {navigation.navigate('SearchClinics', {category: 'Cardiology'})}} />
       <Button title='AppointmentTime' onPress={() => {navigation.navigate('AppointmentTime', {clinicId: 'a'})}} />
       <Button title='AppointmentConfirmation' onPress={() => {navigation.navigate('AppointmentConfirmation', {clinicId: 'a', timestamp: 1645852247})}} />
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
