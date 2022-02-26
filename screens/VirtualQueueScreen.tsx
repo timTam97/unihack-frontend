@@ -1,14 +1,25 @@
+import { useNavigation } from '@react-navigation/native';
 import React, {Component} from 'react';
-import {StyleSheet,View,StatusBar,Text, Image} from 'react-native';
+import {StyleSheet,View,StatusBar,Text, Image, Button, Alert, TouchableHighlight} from 'react-native';
 import LoadingDots from 'react-native-loading-dots';
 
 export default function Explore() {
+  const navigation = useNavigation()
   return (
     <View style={styles.container}>
       <StatusBar hidden />
       <View style={styles.headerSectionStackStack}>
         <View style={styles.headerSectionStack}>
           <View style={styles.rect54}>
+          <View>
+            <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)' onPress={() => navigation.goBack()}>
+            <Image
+              source={require('../assets/images/left-arrow.png')}
+              resizeMode="contain"
+              style={styles.image2}>
+            </Image>
+            </TouchableHighlight>
+        </View>
             <Text style={styles.virtualQueue}>Virtual Queue</Text>
             <Text style={styles.text74}>Thank you for waiting.</Text>
             <View style={styles.loadingScreen}>
@@ -27,7 +38,7 @@ export default function Explore() {
               <Text style={styles.minutesLate}>minutes late.</Text>
             </View>
             <Text style={styles.text77}>
-              We’ll let you know when we’re almost {'\n'}ready to see you.
+              We’ll let you know when we’re {'\n'}almost ready to see you.
             </Text>
           </View>
         </View>
@@ -68,12 +79,13 @@ const styles = StyleSheet.create({
     fontSize: 35,
     fontFamily: 'Lato_700Bold',
     color: '#101010',
-    marginTop: 100,
+    marginTop: 30,
     marginLeft: -10,
   },
   text74: {
     fontFamily: 'Lato_400Regular',
     color: 'rgba(161,164,178,1)',
+    fontSize: 20,
     marginTop: 5,
     marginLeft: -10,
   },
@@ -86,21 +98,25 @@ const styles = StyleSheet.create({
   },
   text75: {
     fontFamily: 'Lato_400Regular',
+    fontSize: 20,
     color: 'rgba(161,164,178,1)',
     marginTop: 300,
-    marginLeft: 40,
+    marginLeft: 30,
   },
   drKhanIsRunning: {
     fontFamily: 'Lato_400Regular',
+    fontSize: 20,
     color: 'rgba(161,164,178,1)',
   },
   drKhanIsRunning1: {
     fontFamily: 'Lato_700Bold',
+    fontSize: 20,
     color: '#11CB7D',
     marginLeft: 5,
   },
   minutesLate: {
     fontFamily: 'Lato_400Regular',
+    fontSize: 20,
     color: 'rgba(161,164,178,1)',
     marginLeft: 4,
   },
@@ -108,17 +124,18 @@ const styles = StyleSheet.create({
     height: 19,
     flexDirection: 'row',
     marginTop: 12,
-    marginLeft: 40,
+    marginLeft: 30,
     marginRight: 102,
   },
   text77: {
     fontFamily: 'Lato_400Regular',
+    fontSize: 20,
     color: 'rgba(161,164,178,1)',
     marginTop: 12,
-    marginLeft: 40,
+    marginLeft: 30,
   },
   virtualQueue1: {
-    marginTop: 160,
+    marginTop: 185,
     left: 125,
     position: 'absolute',
     fontFamily: 'Lato_700Bold',
@@ -151,7 +168,7 @@ const styles = StyleSheet.create({
   },
   image: {
     width: 300,
-    marginTop: 110,
+    marginTop: 125,
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
   },
@@ -160,9 +177,15 @@ const styles = StyleSheet.create({
     display: "flex",
     //alignItems: "center",
     justifyContent: "center",
-    marginTop: 15,
+    marginTop: 20,
+    marginLeft: -5
   },
   dotsWrapper: {
     width: 100
+  },
+  image2:{
+    height: 40,
+    marginTop: 55,
+    marginLeft: -260
   }
 });
