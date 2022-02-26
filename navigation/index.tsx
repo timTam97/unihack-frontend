@@ -15,14 +15,12 @@ import useColorScheme from '../hooks/useColorScheme';
 import AppointmentConfirmationScreen from '../screens/AppointmentConfirmationScreen';
 import AppointmentDetailScreen from '../screens/AppointmentDetailScreen';
 import AppointmentTimeScreen from '../screens/AppointmentTimeScreen';
-import AvailableClinicsScreen from '../screens/AvailableClinicsScreen';
+import SearchClinicsScreen from '../screens/SearchClinicsScreen';
 import ClinicCategoryScreen from '../screens/ClinicCategoryScreen';
 import HomeScreen from '../screens/HomeScreen';
 import IntroScreen from '../screens/IntroScreen';
 import ModalScreen from '../screens/ModalScreen';
 import NotFoundScreen from '../screens/NotFoundScreen';
-import TabOneScreen from '../screens/SearchClinicsScreen';
-import TabTwoScreen from '../screens/TabTwoScreen';
 import VirtualQueueScreen from '../screens/VirtualQueueScreen';
 import { BookStackPramList, HomeStackPramList, RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
@@ -74,7 +72,7 @@ const BookStack = createNativeStackNavigator<BookStackPramList>();
 function BookStackScreen() {
   return <BookStack.Navigator initialRouteName='ClinicCategory'>
     <BookStack.Screen name='ClinicCategory' component={ClinicCategoryScreen} />
-    <BookStack.Screen name='AvailableClinics' component={AvailableClinicsScreen} />
+    <BookStack.Screen name='SearchClinics' component={SearchClinicsScreen} />
     <BookStack.Screen name='AppointmentTime' component={AppointmentTimeScreen} />
     <BookStack.Screen name='AppointmentConfirmation' component={AppointmentConfirmationScreen} />
 
