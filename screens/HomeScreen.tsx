@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'flex-start',
-    fontFamily: 'lato'
+    // fontFamily: 'lato'
   },
   title_container: {
     marginTop: 10,
@@ -37,11 +37,12 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 35,
-    fontFamily: 'lato',
-    fontWeight: 'bold',
+    fontFamily: 'Lato_700Bold',
   },
   title_subtitle: {
-    color: '#A1A4B2'
+    color: '#A1A4B2',
+    fontFamily: 'Lato',
+
   },
   separator: {
     marginVertical: 30,
