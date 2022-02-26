@@ -1,10 +1,5 @@
 import React, {Component} from 'react';
-import {
-  StyleSheet,
-  View,
-  StatusBar,
-  Text
-} from 'react-native';
+import {StyleSheet,View,StatusBar,Text, Image} from 'react-native';
 
 export default function Explore() {
   return (
@@ -29,7 +24,14 @@ export default function Explore() {
               We’ll let you know when we’re almost {'\n'}ready to see you.
             </Text>
           </View>
-          <Text style={styles.virtualQueue1}>5</Text>
+        </View>
+        <View style={styles.image}>
+            <Image
+              source={require('../assets/images/queuePosition.png')}
+              resizeMode="contain"
+              style={styles.image}>
+            </Image>
+            <Text style={styles.virtualQueue1}>5</Text>
         </View>
       </View>
     </View>
@@ -57,10 +59,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#E6E6E6',
   },
   virtualQueue: {
-    fontFamily: 'Lato_700Bold',
+    fontSize: 35,
+    fontFamily: 'lato',
+    fontWeight: 'bold',
     color: '#101010',
-    fontSize: 45,
-    marginTop: 30,
+    marginTop: 100,
     marginLeft: -10,
   },
   text74: {
@@ -79,8 +82,8 @@ const styles = StyleSheet.create({
   text75: {
     fontFamily: 'Lato_400Regular',
     color: 'rgba(161,164,178,1)',
-    marginTop: 33,
-    marginLeft: 37,
+    marginTop: 300,
+    marginLeft: 40,
   },
   drKhanIsRunning: {
     fontFamily: 'Lato_400Regular',
@@ -88,7 +91,7 @@ const styles = StyleSheet.create({
   },
   drKhanIsRunning1: {
     fontFamily: 'Lato_700Bold',
-    color: 'rgba(102,129,255,1)',
+    color: '#11CB7D',
     marginLeft: 5,
   },
   minutesLate: {
@@ -100,18 +103,18 @@ const styles = StyleSheet.create({
     height: 19,
     flexDirection: 'row',
     marginTop: 12,
-    marginLeft: 37,
+    marginLeft: 40,
     marginRight: 102,
   },
   text77: {
     fontFamily: 'Lato_400Regular',
     color: 'rgba(161,164,178,1)',
     marginTop: 12,
-    marginLeft: 37,
+    marginLeft: 40,
   },
   virtualQueue1: {
-    top: 288,
-    left: 148,
+    marginTop: 160,
+    left: 120,
     position: 'absolute',
     fontFamily: 'Lato_700Bold',
     color: 'rgba(243,244,255,1)',
@@ -140,5 +143,11 @@ const styles = StyleSheet.create({
     height: 740,
     marginRight: -86,
     marginLeft: 36,
+  },
+  image: {
+    width: 300,
+    marginTop: 100,
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10,
   },
 });
