@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import { StyleSheet, Dimensions, Image, FlatList} from 'react-native';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import { Text, View } from '../components/Themed';
@@ -64,102 +64,98 @@ const DATA: {id: number, title: string, address: string, openingTime: string, cl
   },
 ];
 
-const Item = ({ title, address, openingTime, closingTime  }) => (
-  <TouchableRipple style={styles.boxes}
-  onPress={() => movetoDateTime('Albert Road General Practice')}
-  borderless={true}>
-    <View style={{display: 'flex', flexDirection: 'row'}}>
-      <View style={{flex: 1}}>
-        <Image
-          source={require('../assets/images/albert-road-gp.jpg')}
-          style={styles.boxImage}
-        ></Image>
-      </View>
-      <View style={{flex: 3}}>
-        <Text style={styles.boxTitle}>{title}</Text>
-        <Text style={styles.boxAddress}>{address}</Text>
-        <View style={{display: 'flex', flexDirection: 'row', paddingTop: 10}}>
-          <View style={{flex: 1}}>
-            <Text style={styles.openClosed}>Open</Text>
-          </View>
-          <View style={{flex: 4}}>
-            <Text style={styles.openClosedTime}>Closes at {openingTime}</Text>            
-          </View>
-        </View>
-      </View>
-    </View>
-  </TouchableRipple>
-);
+const SearchClinicsScreen = (navigation: any) => {
 
-export default class SearchClinicsScreen extends Component {
-  constructor(props: any) {
-    super(props);
-    //setting default state
-    this.state = { isLoading: true, search: '' };
-    this.arrayholder = [];
+  function selectClinic(place: string) {
+    navigation.navigate('ClinicScreen', {place: place});
   }
-  searchFunction = (text) => {
-    const updatedData = this.arrayholder.filter((item) => {
-      const item_data = `${item.title.toUpperCase()})`;
-      const text_data = text.toUpperCase();
-      return item_data.indexOf(text_data) > -1;
-    });
-    this.setState({ data: updatedData, searchValue: text });
+
+  const [search, setSearch] = useState("");
+
+  const updateSearch = (search: any) => {
+    setSearch(search);
   };
 
-  renderItem = ({ item }) => (
-    <Item 
-      title={item.title}
-      address={item.address}
-      openingTime={item.openingTime}
-      closingTime={item.closingTime}
-    />
-  );
-
-  render() {
-    return (
-      <SafeAreaProvider style={styles.container}>
-        <View style={styles.topContainer}>
-          <Text style={styles.title}>Search Clinics</Text>
-          <SearchBar
-            placeholder="Clinic name"
-            lightTheme
-            round
-            value={this.state.searchValue}
-            onChangeText={(text) => this.searchFunction(text)}
-            autoCorrect={false}
-            containerStyle={{
-              backgroundColor: '#FFFFFF', borderWidth: 0, borderTopWidth: 0, borderBottomWidth: 0
-            }}
-            inputContainerStyle={{backgroundColor: '#DBDBDB'}}
-            inputStyle={{backgroundColor: '#DBDBDB'}}
-            leftIconContainerStyle={{backgroundColor: '#DBDBDB'}}
-          />
-          <SearchBar
-            placeholder="Suburb or postcode"
-            lightTheme
-            round
-            value={this.state.searchValue}
-            onChangeText={(text) => this.searchFunction(text)}
-            autoCorrect={false}
-            containerStyle={{
-              backgroundColor: '#FFFFFF', borderWidth: 0, borderTopWidth: 0, borderBottomWidth: 0
-            }}
-            inputContainerStyle={{backgroundColor: '#DBDBDB'}}
-            inputStyle={{backgroundColor: '#DBDBDB'}}
-            leftIconContainerStyle={{backgroundColor: '#DBDBDB'}}
-          />
-        </View>      
-        <View style={styles.bottomContainer}>
-          <FlatList
-            data={DATA}
-            renderItem={this.renderItem} 
-          />
+  const Item = ({ title, address, openingTime, closingTime  }) => (
+    <TouchableRipple style={styles.boxes}
+    onPress={() => selectClinic('Albert Road General Practice')}
+    borderless={true}>
+      <View style={{display: 'flex', flexDirection: 'row'}}>
+        <View style={{flex: 1}}>
+          <Image
+            source={require('../assets/images/albert-road-gp.jpg')}
+            style={styles.boxImage}
+          ></Image>
         </View>
-      </SafeAreaProvider>
-    );
-  }
+        <View style={{flex: 3}}>
+          <Text style={styles.boxTitle}>{title}</Text>
+          <Text style={styles.boxAddress}>{address}</Text>
+          <View style={{display: 'flex', flexDirection: 'row', paddingTop: 10}}>
+            <View style={{flex: 1}}>
+              <Text style={styles.openClosed}>Open</Text>
+            </View>
+            <View style={{flex: 4}}>
+              <Text style={styles.openClosedTime}>Closes at {openingTime}</Text>            
+            </View>
+          </View>
+        </View>
+      </View>
+    </TouchableRipple>
+  );
   
+
+  const renderItem = ({ item }) => {
+    return(
+      <Item 
+        title={item.title}
+        address={item.address}
+        openingTime={item.openingTime}
+        closingTime={item.closingTime}
+      />
+    )
+  };
+
+  return (
+    <SafeAreaProvider style={styles.container}>
+      <View style={styles.topContainer}>
+        <Text style={styles.title}>Search Clinics</Text>
+        <SearchBar
+          placeholder="Clinic name"
+          lightTheme
+          round
+          onChangeText={updateSearch}
+          value={search}
+          autoCorrect={false}
+          containerStyle={{
+            backgroundColor: '#FFFFFF', borderWidth: 0, borderTopWidth: 0, borderBottomWidth: 0
+          }}
+          inputContainerStyle={{backgroundColor: '#DBDBDB'}}
+          inputStyle={{backgroundColor: '#DBDBDB'}}
+          leftIconContainerStyle={{backgroundColor: '#DBDBDB'}}
+        />
+        <SearchBar
+          placeholder="Suburb or postcode"
+          lightTheme
+          round
+          onChangeText={updateSearch}
+          value={search}
+          autoCorrect={false}
+          containerStyle={{
+            backgroundColor: '#FFFFFF', borderWidth: 0, borderTopWidth: 0, borderBottomWidth: 0
+          }}
+          inputContainerStyle={{backgroundColor: '#DBDBDB'}}
+          inputStyle={{backgroundColor: '#DBDBDB'}}
+          leftIconContainerStyle={{backgroundColor: '#DBDBDB'}}
+        />
+      </View>      
+      <View style={styles.bottomContainer}>
+        <FlatList
+          data={DATA}
+          renderItem={renderItem} 
+        />
+      </View>
+    </SafeAreaProvider>
+  );
 }
 
 const styles = StyleSheet.create({
@@ -242,3 +238,5 @@ const styles = StyleSheet.create({
     paddingRight: 10,
   }
 });
+
+export default SearchClinicsScreen;
