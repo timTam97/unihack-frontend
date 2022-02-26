@@ -12,11 +12,19 @@ import { ColorSchemeName, Pressable } from 'react-native';
 
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
+import AppointmentConfirmationScreen from '../screens/AppointmentConfirmationScreen';
+import AppointmentDetailScreen from '../screens/AppointmentDetailScreen';
+import AppointmentTimeScreen from '../screens/AppointmentTimeScreen';
+import AvailableClinicsScreen from '../screens/AvailableClinicsScreen';
+import ClinicCategoryScreen from '../screens/ClinicCategoryScreen';
+import HomeScreen from '../screens/HomeScreen';
+import IntroScreen from '../screens/IntroScreen';
 import ModalScreen from '../screens/ModalScreen';
 import NotFoundScreen from '../screens/NotFoundScreen';
 import TabOneScreen from '../screens/TabOneScreen';
 import TabTwoScreen from '../screens/TabTwoScreen';
-import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
+import VirtualQueueScreen from '../screens/VirtualQueueScreen';
+import { BookStackPramList, HomeStackPramList, RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
@@ -42,11 +50,36 @@ function RootNavigator() {
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
       <Stack.Group screenOptions={{ presentation: 'modal' }}>
         <Stack.Screen name="Modal" component={ModalScreen} />
+        <Stack.Screen name="IntroModal" component={IntroScreen} />
       </Stack.Group>
     </Stack.Navigator>
   );
 }
 
+const HomeStack = createNativeStackNavigator<HomeStackPramList>();
+
+function HomeStackScreen() {
+  return <HomeStack.Navigator initialRouteName='Home'>
+    <HomeStack.Screen name='Home' component={HomeScreen} />
+    <HomeStack.Screen name='AppointmentDetails' component={AppointmentDetailScreen} />
+    <HomeStack.Screen name='VirtualQueue' component={VirtualQueueScreen} />
+    {/* VirtualQueueScreen */}
+    {/* AppointmentDetailScreen */}
+  </HomeStack.Navigator>
+} 
+
+
+const BookStack = createNativeStackNavigator<BookStackPramList>();
+
+function BookStackScreen() {
+  return <BookStack.Navigator initialRouteName='ClinicCategory'>
+    <BookStack.Screen name='ClinicCategory' component={ClinicCategoryScreen} />
+    <BookStack.Screen name='AvailableClinics' component={AvailableClinicsScreen} />
+    <BookStack.Screen name='AppointmentTime' component={AppointmentTimeScreen} />
+    <BookStack.Screen name='AppointmentConfirmation' component={AppointmentConfirmationScreen} />
+
+  </BookStack.Navigator>
+} 
 /**
  * A bottom tab navigator displays tab buttons on the bottom of the display to switch screens.
  * https://reactnavigation.org/docs/bottom-tab-navigator
@@ -58,37 +91,24 @@ function BottomTabNavigator() {
 
   return (
     <BottomTab.Navigator
-      initialRouteName="TabOne"
+      initialRouteName="HomeStack"
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme].tint,
+        headerShown: false
       }}>
       <BottomTab.Screen
-        name="TabOne"
-        component={TabOneScreen}
-        options={({ navigation }: RootTabScreenProps<'TabOne'>) => ({
-          title: 'Tab One',
+        name="HomeStack"
+        component={HomeStackScreen}
+        options={({ navigation }: any) => ({
+          title: 'Home',
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
-          headerRight: () => (
-            <Pressable
-              onPress={() => navigation.navigate('Modal')}
-              style={({ pressed }) => ({
-                opacity: pressed ? 0.5 : 1,
-              })}>
-              <FontAwesome
-                name="info-circle"
-                size={25}
-                color={Colors[colorScheme].text}
-                style={{ marginRight: 15 }}
-              />
-            </Pressable>
-          ),
         })}
       />
       <BottomTab.Screen
-        name="TabTwo"
-        component={TabTwoScreen}
+        name="BookStack"
+        component={BookStackScreen}
         options={{
-          title: 'Tab Two',
+          title: 'Book',
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
         }}
       />
@@ -105,3 +125,17 @@ function TabBarIcon(props: {
 }) {
   return <FontAwesome size={30} style={{ marginBottom: -3 }} {...props} />;
 }
+
+
+
+
+
+// Tabs:
+//   1:
+//     Screen1
+//     Screen2
+
+
+//   2:
+//     Screen1
+//     Screen2
