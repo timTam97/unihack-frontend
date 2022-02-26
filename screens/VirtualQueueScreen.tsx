@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {StyleSheet,View,StatusBar,Text, Image} from 'react-native';
+import LoadingDots from 'react-native-loading-dots';
 
 export default function Explore() {
   return (
@@ -10,6 +11,11 @@ export default function Explore() {
           <View style={styles.rect54}>
             <Text style={styles.virtualQueue}>Virtual Queue</Text>
             <Text style={styles.text74}>Thank you for waiting.</Text>
+            <View style={styles.loadingScreen}>
+      <View style={styles.dotsWrapper}>
+        <LoadingDots dots={3} size ={15} bounceHeight ={12} colors = {["#69db7c", "#69db7c",  "#69db7c", "#69db7c"]}/>
+      </View>
+    </View>
             <View style={styles.row}>
             </View>
             <Text style={styles.text75}>
@@ -60,8 +66,7 @@ const styles = StyleSheet.create({
   },
   virtualQueue: {
     fontSize: 35,
-    fontFamily: 'lato',
-    fontWeight: 'bold',
+    fontFamily: 'Lato_700Bold',
     color: '#101010',
     marginTop: 100,
     marginLeft: -10,
@@ -114,7 +119,7 @@ const styles = StyleSheet.create({
   },
   virtualQueue1: {
     marginTop: 160,
-    left: 120,
+    left: 125,
     position: 'absolute',
     fontFamily: 'Lato_700Bold',
     color: 'rgba(243,244,255,1)',
@@ -146,8 +151,18 @@ const styles = StyleSheet.create({
   },
   image: {
     width: 300,
-    marginTop: 100,
+    marginTop: 110,
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
   },
+  loadingScreen: {
+    //flex: 1,
+    display: "flex",
+    //alignItems: "center",
+    justifyContent: "center",
+    marginTop: 15,
+  },
+  dotsWrapper: {
+    width: 100
+  }
 });
