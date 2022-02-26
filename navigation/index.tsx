@@ -57,7 +57,7 @@ function RootNavigator() {
 const HomeStack = createNativeStackNavigator<HomeStackPramList>();
 
 function HomeStackScreen() {
-  return <HomeStack.Navigator initialRouteName='Home'>
+  return <HomeStack.Navigator initialRouteName='Home' screenOptions={{headerShown: false}}>
     <HomeStack.Screen name='Home' component={HomeScreen} />
     <HomeStack.Screen name='AppointmentDetails' component={AppointmentDetailScreen} />
     <HomeStack.Screen name='VirtualQueue' component={VirtualQueueScreen} />
@@ -70,7 +70,7 @@ function HomeStackScreen() {
 const BookStack = createNativeStackNavigator<BookStackPramList>();
 
 function BookStackScreen() {
-  return <BookStack.Navigator initialRouteName='ClinicCategory'>
+  return <BookStack.Navigator initialRouteName='ClinicCategory' screenOptions={{headerShown: false}}>
     <BookStack.Screen name='ClinicCategory' component={ClinicCategoryScreen} />
     <BookStack.Screen name='SearchClinics' component={SearchClinicsScreen} />
     <BookStack.Screen name='AppointmentTime' component={AppointmentTimeScreen} />
@@ -80,7 +80,7 @@ function BookStackScreen() {
 } 
 /**
  * A bottom tab navigator displays tab buttons on the bottom of the display to switch screens.
- * https://reactnavigation.org/docs/bottom-tab-navigator
+ * https://reactnavigation.org/docs/bttom-tab-navigator
  */
 const BottomTab = createBottomTabNavigator<RootTabParamList>();
 

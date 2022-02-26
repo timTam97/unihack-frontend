@@ -28,7 +28,7 @@ export type HomeStackPramList = {
 
 export type BookStackPramList = {
   ClinicCategory: undefined;
-  SearchClinics: {category: Categories};
+  SearchClinics: undefined;
   AppointmentTime: {clinicId: string};
   AppointmentConfirmation: {clinicId: string, timestamp: number}
 }
@@ -48,5 +48,3 @@ export type RootTabScreenProps<Screen extends keyof RootTabParamList> = Composit
   BottomTabScreenProps<RootTabParamList, Screen>,
   NativeStackScreenProps<RootStackParamList>
 >;
-
-
