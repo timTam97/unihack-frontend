@@ -28,7 +28,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'flex-start',
-    // fontFamily: 'lato'
   },
   title_container: {
     marginTop: 10,
@@ -41,7 +40,7 @@ const styles = StyleSheet.create({
   },
   title_subtitle: {
     color: '#A1A4B2',
-    fontFamily: 'Lato',
+    // fontFamily: 'Lato',
 
   },
   separator: {

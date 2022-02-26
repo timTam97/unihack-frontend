@@ -1,10 +1,95 @@
-import { useNavigation } from '@react-navigation/core';
 import React, { Component } from "react";
-import { StyleSheet, Dimensions} from 'react-native';
+import { StyleSheet, Dimensions, Image, FlatList} from 'react-native';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import { Text, View } from '../components/Themed';
 import { SearchBar } from 'react-native-elements';
 import { TouchableRipple } from 'react-native-paper';
+
+const DATA: {id: number, title: string, address: string, openingTime: string, closingTime: string}[] = [
+  {
+    id: 1,
+    title: 'Albert Road General Practice',
+    address: '38 Albert Rd, South Melbourne VIC',
+    openingTime: '9:00am',
+    closingTime: '10:00pm'
+  },
+  {
+    id: 2,
+    title: 'Albert Road General Practice',
+    address: '38 Albert Rd, South Melbourne VIC',
+    openingTime: '9:00am',
+    closingTime: '10:00pm'
+  },
+  {
+    id: 3,
+    title: 'Albert Road General Practice',
+    address: '38 Albert Rd, South Melbourne VIC',
+    openingTime: '9:00am',
+    closingTime: '10:00pm'
+  },
+  {
+    id: 4,
+    title: 'Albert Road General Practice',
+    address: '38 Albert Rd, South Melbourne VIC',
+    openingTime: '9:00am',
+    closingTime: '10:00pm'
+  },
+  {
+    id: 5,
+    title: 'Albert Road General Practice',
+    address: '38 Albert Rd, South Melbourne VIC',
+    openingTime: '9:00am',
+    closingTime: '10:00pm'
+  },
+  {
+    id: 6,
+    title: 'Albert Road General Practice',
+    address: '38 Albert Rd, South Melbourne VIC',
+    openingTime: '9:00am',
+    closingTime: '10:00pm'
+  },
+  {
+    id: 7,
+    title: 'Albert Road General Practice',
+    address: '38 Albert Rd, South Melbourne VIC',
+    openingTime: '9:00am',
+    closingTime: '10:00pm'
+  },
+  {
+    id: 8,
+    title: 'Albert Road General Practice',
+    address: '38 Albert Rd, South Melbourne VIC',
+    openingTime: '9:00am',
+    closingTime: '10:00pm'
+  },
+];
+
+const Item = ({ title, address, openingTime, closingTime  }) => (
+  <TouchableRipple style={styles.boxes}
+  onPress={() => movetoDateTime('Albert Road General Practice')}
+  borderless={true}>
+    <View style={{display: 'flex', flexDirection: 'row'}}>
+      <View style={{flex: 1}}>
+        <Image
+          source={require('../assets/images/albert-road-gp.jpg')}
+          style={styles.boxImage}
+        ></Image>
+      </View>
+      <View style={{flex: 3}}>
+        <Text style={styles.boxTitle}>{title}</Text>
+        <Text style={styles.boxAddress}>{address}</Text>
+        <View style={{display: 'flex', flexDirection: 'row', paddingTop: 10}}>
+          <View style={{flex: 1}}>
+            <Text style={styles.openClosed}>Open</Text>
+          </View>
+          <View style={{flex: 4}}>
+            <Text style={styles.openClosedTime}>Closes at {openingTime}</Text>            
+          </View>
+        </View>
+      </View>
+    </View>
+  </TouchableRipple>
+);
 
 export default class SearchClinicsScreen extends Component {
   constructor(props: any) {
@@ -21,6 +106,15 @@ export default class SearchClinicsScreen extends Component {
     });
     this.setState({ data: updatedData, searchValue: text });
   };
+
+  renderItem = ({ item }) => (
+    <Item 
+      title={item.title}
+      address={item.address}
+      openingTime={item.openingTime}
+      closingTime={item.closingTime}
+    />
+  );
 
   render() {
     return (
@@ -57,18 +151,10 @@ export default class SearchClinicsScreen extends Component {
           />
         </View>      
         <View style={styles.bottomContainer}>
-          <TouchableRipple style={styles.boxes} rippleColor="#172285"
-          onPress={() => movetoDateTime('South Yarra Clinic')}
-          borderless={true}>
-          <View>
-            <Text style={styles.boxTitle}>South Yarra Clinic</Text>
-            <Text style={styles.boxAddress}>12 Yarra Street, Melbourne VIC</Text>
-            <Text>
-              <Text style={styles.openClosed}>Open</Text>
-              <Text style={styles.openClosedTime}>Closes at 10pm</Text>
-            </Text>
-          </View>
-        </TouchableRipple>
+          <FlatList
+            data={DATA}
+            renderItem={this.renderItem} 
+          />
         </View>
       </SafeAreaProvider>
     );
@@ -78,19 +164,19 @@ export default class SearchClinicsScreen extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    // paddingTop: '20%'
+    
   },
   title: {
-    paddingTop: '15%',
+    paddingTop: '18%',
     paddingLeft: '5%',
-    paddingBottom: '5%',
+    paddingBottom: '2%',
     fontSize: 28,
     fontWeight: 'bold',
   },
   boxes: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#ffffff',
     alignSelf: 'center',
-    width: Dimensions.get('window').width - (Dimensions.get('window').width/10),
+    width: Dimensions.get('window').width - (Dimensions.get('window').width/8),
     shadowColor: '#e0e0ec',
     shadowOffset: {width: 1, height: 0},
     shadowOpacity: 0.7,
@@ -98,16 +184,16 @@ const styles = StyleSheet.create({
     elevation: 5,
     borderRadius: 15,
     marginTop: 10,
-    height: 100,
-    paddingTop: 18,
+    height: 'auto',
+    paddingTop: 10,
     paddingBottom: 10,
-    paddingLeft: 20,
-    paddingRight: 20,
+    paddingLeft: 5,
+    paddingRight: 5,
   },
   boxTitle: {
-    fontFamily: 'Lato_900Black',
+    fontFamily: 'Lato_700Bold',
     color: '#101010',
-    fontSize: 18,
+    fontSize: 16,
     marginBottom: 10,
     zIndex: 10, // works on ios
     elevation: 10, // works on android
@@ -119,24 +205,21 @@ const styles = StyleSheet.create({
     zIndex: 10, // works on ios
     elevation: 10, // works on android
   },
+  boxImage: {
+    width: 80,
+    height: 80,
+    // marginTop: 10
+  },
   openClosed: {
-    fontFamily: 'Lato_900Black',
-    color: '#101010',
+    fontFamily: 'Lato_700Bold',
+    color: '#08AF69',
     fontSize: 14,
-    flex: 1,
-    // position: 'absolute',
-    // left: '85%',
-    // top: '50%',
     zIndex: 10, // works on ios
     elevation: 10, // works on android
-    // transform: [
-    //   {translateY: -1},
-    // ],
   },
   openClosedTime: {
-    fontFamily: 'Lato_900Black',
+    fontFamily: 'Lato_400Regular',
     color: '#101010',
-    flex: 1,
     fontSize: 14,
     zIndex: 10, // works on ios
     elevation: 10, // works on android
@@ -147,11 +230,15 @@ const styles = StyleSheet.create({
     width: '80%',
   },
   topContainer: {
-    flex: 1,
+    flex: 4,
     backgroundColor: '#FFFFFF',
+    paddingLeft: 20,
+    paddingRight: 20,
   },
   bottomContainer: {
-    flex: 2,
+    flex: 9,
     backgroundColor: '#F1F1F4',
+    paddingLeft: 10,
+    paddingRight: 10,
   }
 });
