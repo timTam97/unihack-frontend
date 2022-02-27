@@ -1,10 +1,35 @@
 import { useNavigation } from '@react-navigation/native';
-import React, {Component} from 'react';
+import React, {Component, useEffect, useState} from 'react';
 import {StyleSheet,View,StatusBar,Text, Image, Button, Alert, TouchableHighlight} from 'react-native';
 import LoadingDots from 'react-native-loading-dots';
 
-export default function Explore() {
+export default function Explore({route}) {
   const navigation = useNavigation()
+  console.log(route.params.appointmentId)
+  const [pos, setPos] = useState(0);
+  const otherNavigation = useNavigation()
+  async function refreshPos() {
+      // let user = 'Tim';
+      console.log(route.params.appointmentId);
+      let raw_results = await fetch("https://iasrapy4gj.execute-api.ap-southeast-2.amazonaws.com/getstatus", {
+        "method": "GET",
+        "headers": {
+          "entryid": route.params.appointmentId
+        }
+      })
+      let results = await raw_results.json();
+      setPos(results.queuePosition)
+
+  }
+  useEffect(
+    () => {
+      setTimeout(() => {
+        refreshPos()
+      }, 1000)
+    }
+    // () => {refreshList().catch(() => 'a')}
+    , []
+  )
   return (
     <View style={styles.container}>
       <StatusBar hidden />
@@ -48,7 +73,7 @@ export default function Explore() {
               resizeMode="contain"
               style={styles.image}>
             </Image>
-            <Text style={styles.virtualQueue1}>5</Text>
+            <Text style={styles.virtualQueue1}>{pos}</Text>
         </View>
       </View>
     </View>

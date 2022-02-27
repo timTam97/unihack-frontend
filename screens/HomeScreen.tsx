@@ -1,10 +1,12 @@
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import React, { useState } from 'react';
-import { Button, StyleSheet, Image, TouchableOpacity, Text, View} from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { Button, StyleSheet, Image, TouchableOpacity, Text, View, FlatList} from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { HomeStackPramList } from '../types';
 import { Appointment } from '../components/Appointment'
+import * as Linking from "expo-linking"
+import { BackgroundImage } from 'react-native-elements/dist/config';
 // import { RootTabScreenProps, NativeStackScreenProps } from '../types';
 type Props = NativeStackScreenProps<HomeStackPramList>
 const buttonPhoto = require('../assets/images/book_appointment_button.png')
@@ -13,7 +15,21 @@ const phoneStensilPhoto = require('../assets/images/phone_stensil.png')
 
 export default function HomeScreen({ navigation }: Props) {
   const [appointments, setAppointments] = useState([]);
+  const [refresh, setRefreshing] = useState(false);
   const otherNavigation = useNavigation()
+  async function refreshList() {
+      let user = 'Tim';
+      let raw_results = await fetch('https://iasrapy4gj.execute-api.ap-southeast-2.amazonaws.com/listpatients');
+      let results = await raw_results.json();
+      // console.log(results.filter((a) => a.patientName == user))
+      setAppointments(results.filter((a) => a.patientName == user))
+      setRefreshing(false)
+
+  }
+  useEffect(
+    () => {refreshList().catch(() => 'a')}
+    , []
+  )
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.title_container}>
@@ -24,93 +40,40 @@ export default function HomeScreen({ navigation }: Props) {
       <TouchableOpacity onPress={() => {otherNavigation.navigate('Root', {screen: 'BookStack', params: {screen: 'ClinicCategory'}})}} activeOpacity={0.8}>
         <Image style={styles.bookImage} source={buttonPhoto}/>
       </TouchableOpacity>
-      <Button title='AppointmentDetails' onPress={() => {navigation.navigate('AppointmentDetails', {appointmentId: 'a'})}}></Button>
-      <Button title='VirtualQueue' onPress={() => {navigation.navigate('VirtualQueue', {appointmentId: 'a'})}}></Button>
+      {/* <Button title='AppointmentDetails' onPress={() => {navigation.navigate('AppointmentDetails', {appointmentId: 'a'})}}></Button>
+      <Button title='VirtualQueue' onPress={() => {navigation.navigate('VirtualQueue', {appointmentId: 'a'})}}></Button> */}
       <View style={styles.title_container}>
         <Text style={styles.secondtitle}>Upcoming appointments</Text>
       </View>
-
-      <Appointment color='#A1ECBF'onClick1={() => {}} onClick2={() => {}}  time={1645925400} clinic={'Albert Road Mental clinic'} doctor={'Dr. Adbul Khan'}/>
+      <FlatList data={appointments} 
+        style={styles.list}
+        renderItem={(a) => {
+          // console.log('11111111111111');
+          // console.log(a);
+          return (
+            <Appointment 
+              color={['#11CB7D', '#476955', '#A1ECBF'][a.index % 3]}
+              onClick1={() => {navigation.navigate('VirtualQueue', {appointmentId: a.item.entryId})}} 
+              onClick2={() => {}}  
+              time={a.item.timeCreated} 
+              clinic={'Albert Road Mental clinic'} 
+              doctor={'Dr. Adbul Khan'}/>
+          )
+        }
+        }
+        refreshing={refresh}
+        onRefresh={() => {setRefreshing(false); refreshList().catch(() => 'a')}}
+        keyExtractor={a => a.entryId}
+      />
+      
     </SafeAreaView>
   );
 }
-const buttonStyles = StyleSheet.create({
-  container: {
-    width: '80%',
-    backgroundColor: '#DFE0EB',
-    display: 'flex',
-    flexDirection: 'row',
-    padding: 10,
-    borderRadius: 15,
-    shadowColor: '#000',
-    shadowOffset: { width: 3, height: 2 },
-    shadowOpacity: 0.2,
-    elevation: 5,
-  },
-  l: {
-    aspectRatio: 1,
-    backgroundColor: 'blue',
-    borderRadius: 10,
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-around',
-    padding: 5
-  },
-  l1: {
-    fontFamily: 'Lato_400Regular',
-    fontSize: 40,
-    color: 'white'
-  },
-  l2: {
-    fontFamily: 'Lato_400Regular',
-    fontSize: 15,
-    color: 'white'
-  },
-  c: {
-    flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0)',
-    marginLeft: 10,
-    display: 'flex',
-    justifyContent: 'center',
-  },
-  c1: {
-    fontFamily: 'Lato_400Regular',
-    // fontWeight: '600',
-    fontSize: 14,
-  },
-  c2: {
-    fontFamily: 'Lato_400Regular',
-    fontSize: 14,
-  },
-  c3: {
-    fontFamily: 'Lato_400Regular',
-    fontSize: 14,
-    color: '#8F8F8F'
-  },
-  r: {
-    backgroundColor: 'rgba(0, 0, 0, 0)',
-    justifyContent: 'flex-end'
-  },
-  r1: {
-    aspectRatio: 1,
-    backgroundColor: '#D0D0D0',
-    borderRadius: 25,
-    width: 50,
-  },
-  r2: {
-    width: 40, 
-    height: 40, 
-    top: 5, 
-    left: 5, 
-    backgroundColor: 'blue',
-    borderRadius: 10,
-    borderWidth: 0
-  }
-})
 const styles = StyleSheet.create({
   
   container: {
     flex: 1,
+    display: 'flex',
     alignItems: 'center',
     justifyContent: 'flex-start',
   },
@@ -143,4 +106,10 @@ const styles = StyleSheet.create({
     height: 1,
     width: '80%',
   },
+  list: {
+    flex: 1,
+    width: '90%',
+    // height: 'auto',
+    backgroundColor: 'rgba(0,0,0,0)'
+  }
 });
