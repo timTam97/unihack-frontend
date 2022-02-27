@@ -4,6 +4,7 @@ import { Text, View } from '../components/Themed';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { Divider } from "react-native-elements";
 import { TouchableRipple } from 'react-native-paper';
+import Navigation from "../navigation";
 
 const DATES = [
     // { date: 'Today'},
@@ -21,11 +22,12 @@ const TIMES2 = [
     { time: '13:30'},
 ]
 
-const makeBooking = (text) => {
-    console.log(text)
-}
+
 
 const DoctorScreen = ({navigation, route}) => {
+    const makeBooking = (text) => {
+        navigation.navigate('Home');
+    }
 
     const dateViews = (data) => {
         return (
