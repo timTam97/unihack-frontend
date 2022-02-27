@@ -5,11 +5,12 @@ import { Text, View } from '../components/Themed';
 import { SearchBar } from 'react-native-elements';
 import { TouchableRipple } from 'react-native-paper';
 
-const DATA: {id: number, title: string, address: string, openingTime: string, closingTime: string}[] = [
+const DATA: {id: number, title: string, address: string, image: NodeRequire, openingTime: string, closingTime: string}[] = [
   {
     id: 1,
     title: 'Albert Road General Practice',
     address: '38 Albert Rd, South Melbourne VIC',
+    image: require('../assets/images/albert-road-gp.jpg'),
     openingTime: '9:00am',
     closingTime: '10:00pm'
   },
@@ -17,6 +18,7 @@ const DATA: {id: number, title: string, address: string, openingTime: string, cl
     id: 2,
     title: 'test',
     address: '38 Albert Rd, South Melbourne VIC',
+    image: require('../assets/images/download.png'),
     openingTime: '9:00am',
     closingTime: '10:00pm'
   },
@@ -24,6 +26,7 @@ const DATA: {id: number, title: string, address: string, openingTime: string, cl
     id: 3,
     title: 'Albert Road General Practice',
     address: '38 Albert Rd, South Melbourne VIC',
+    image: require('../assets/images/albert-road-gp.jpg'),
     openingTime: '9:00am',
     closingTime: '10:00pm'
   },
@@ -31,6 +34,7 @@ const DATA: {id: number, title: string, address: string, openingTime: string, cl
     id: 4,
     title: 'Albert Road General Practice',
     address: '38 Albert Rd, South Melbourne VIC',
+    image: require('../assets/images/albert-road-gp.jpg'),
     openingTime: '9:00am',
     closingTime: '10:00pm'
   },
@@ -38,6 +42,7 @@ const DATA: {id: number, title: string, address: string, openingTime: string, cl
     id: 5,
     title: 'Albert Road General Practice',
     address: '38 Albert Rd, South Melbourne VIC',
+    image: require('../assets/images/albert-road-gp.jpg'),
     openingTime: '9:00am',
     closingTime: '10:00pm'
   },
@@ -45,6 +50,7 @@ const DATA: {id: number, title: string, address: string, openingTime: string, cl
     id: 6,
     title: 'Albert Road General Practice',
     address: '38 Albert Rd, South Melbourne VIC',
+    image: require('../assets/images/albert-road-gp.jpg'),
     openingTime: '9:00am',
     closingTime: '10:00pm'
   },
@@ -52,6 +58,7 @@ const DATA: {id: number, title: string, address: string, openingTime: string, cl
     id: 7,
     title: 'Albert Road General Practice',
     address: '38 Albert Rd, South Melbourne VIC',
+    image: require('../assets/images/albert-road-gp.jpg'),
     openingTime: '9:00am',
     closingTime: '10:00pm'
   },
@@ -59,6 +66,7 @@ const DATA: {id: number, title: string, address: string, openingTime: string, cl
     id: 8,
     title: 'Albert Road General Practice',
     address: '38 Albert Rd, South Melbourne VIC',
+    image: require('../assets/images/albert-road-gp.jpg'),
     openingTime: '9:00am',
     closingTime: '10:00pm'
   },
@@ -66,8 +74,8 @@ const DATA: {id: number, title: string, address: string, openingTime: string, cl
 
 const SearchClinicsScreen = ({navigation}) => {
 
-  function selectClinic(title: string) {    
-    navigation.navigate('Clinic', {place: title});
+  function selectClinic(title: string, address: string, image: NodeRequire, openingTime: string, closingTime: string) {    
+    navigation.navigate('Clinic', {title: title, address: address, image: image, openingTime: openingTime, closingTime: closingTime});
   }
 
   const [search, setSearch] = useState("");
@@ -76,14 +84,14 @@ const SearchClinicsScreen = ({navigation}) => {
     setSearch(search);
   };
 
-  const Item = ({ id, title, address, openingTime, closingTime  }) => (
+  const Item = ({ id, title, address, image, openingTime, closingTime  }) => (
     <TouchableRipple style={styles.boxes}
-    onPress={() => selectClinic(title)}
+    onPress={() => selectClinic(title, address, image, openingTime, closingTime)}
     borderless={true}>
       <View style={{display: 'flex', flexDirection: 'row'}}>
         <View style={{flex: 1}}>
           <Image
-            source={require('../assets/images/albert-road-gp.jpg')}
+            source={image}
             style={styles.boxImage}
           ></Image>
         </View>
@@ -109,6 +117,7 @@ const SearchClinicsScreen = ({navigation}) => {
       <Item 
         title={item.title}
         address={item.address}
+        image={item.image}
         openingTime={item.openingTime}
         closingTime={item.closingTime}
       />
