@@ -10,16 +10,43 @@ const DATES = [
     { date: 'Tomorrow'},
     { date: 'Pick a date'},
 ];
+const TIMES1 = [
+    { time: '9:30'},
+    { time: '10:00'},
+    { time: '10:10'},
+];
+const TIMES2 = [
+    { time: '11:20'},
+    { time: '13:10'},
+    { time: '13:30'},
+]
+
+const makeBooking = (text) => {
+    console.log(text)
+}
 
 const DoctorScreen = ({navigation, route}) => {
 
-    const timeViews = (data) => {
+    const dateViews = (data) => {
         return (
-          <View>
-            <Text>{data.date}</Text>
-          </View>
+            <TouchableRipple 
+                style={styles.boxes} 
+                onPress={() => makeBooking('nice')}
+            >
+                <Text style={styles.date}>{data.date}</Text>
+            </TouchableRipple>
         );
       };
+    const timeViews = (data) => {
+        return (
+            <TouchableRipple 
+                style={styles.boxes}
+                onPress={() => makeBooking('nice')}
+            >
+                <Text style={styles.date}>{data.time}</Text>
+            </TouchableRipple>
+        );
+    };
   
   return (
     <SafeAreaProvider style={styles.container}>
@@ -47,18 +74,24 @@ const DoctorScreen = ({navigation, route}) => {
         <Text style={styles.secondaryBottomTitle}>Date</Text>
 
         {/* <View style={styles.container}> */}
-        <ScrollView>
-            <View style={{flexDirection: 'row', flexWrap: 'wrap'}}>
+        <View style={{paddingBottom: 20, backgroundColor: '#F1F1F4', flexDirection: 'row', alignContent: 'center'}}>
             {DATES.map((value, index) => {
-                return timeViews(value);
+                return dateViews(value);
             })}
-            </View>
-        </ScrollView>
+        </View>
         {/* </View> */}
         
-
-        <Divider/>
         <Text style={styles.secondaryBottomTitle}>Open Slots</Text>
+        <View style={{paddingBottom: 20, backgroundColor: '#F1F1F4', flexDirection: 'row', alignContent: 'center'}}>
+            {TIMES1.map((value, index) => {
+                return timeViews(value);
+            })}
+        </View>
+        <View style={{paddingBottom: 20, backgroundColor: '#F1F1F4', flexDirection: 'row', alignContent: 'center'}}>
+            {TIMES2.map((value, index) => {
+                return timeViews(value);
+            })}
+        </View>
       </View>
     </SafeAreaProvider>
   );
@@ -89,15 +122,23 @@ const styles = StyleSheet.create({
     paddingTop: 20,
     paddingBottom: 15
   },
+  dateGrid: {
+    
+  },
+  date: {
+    fontFamily: 'Lato_700Bold',
+    fontSize: 14,
+    textAlign: 'center',
+    color: '#101010'
+  },
   boxes: {
-    backgroundColor: '#ffffff',
-    alignSelf: 'center',
-    width: Dimensions.get('window').width - (Dimensions.get('window').width/8),
+    width: Dimensions.get('window').width / 3.5,
     shadowColor: '#e0e0ec',
     shadowOffset: {width: 1, height: 0},
     shadowOpacity: 0.7,
     shadowRadius: 30,
     elevation: 5,
+    marginLeft: 10,
     borderRadius: 15,
     marginTop: 10,
     height: 'auto',
@@ -105,6 +146,8 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
     paddingLeft: 5,
     paddingRight: 5,
+    backgroundColor: '#FFFFFF',
+    color: '#FFFFFF'
   },
   boxTitle: {
     fontFamily: 'Lato_700Bold',
