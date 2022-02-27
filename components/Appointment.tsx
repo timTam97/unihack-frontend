@@ -15,8 +15,10 @@ export function Appointment({color, onClick1, onClick2, time, clinic, doctor}: P
     let months = [ "January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December" ]
     let theTime = new Date(time)
+    console.log({color, time, clinic, doctor})
+    
     return (
-        <TouchableOpacity style={buttonStyles.container}>
+        <TouchableOpacity style={buttonStyles.container} onPress={() => onClick1()}>
             <View style={{...buttonStyles.l, backgroundColor: color}}>
             <Text style={buttonStyles.l1}>{theTime.getDate()}</Text>
             <Text style={buttonStyles.l2}>{months[theTime.getMonth()]}</Text>
@@ -37,7 +39,9 @@ export function Appointment({color, onClick1, onClick2, time, clinic, doctor}: P
     
     const buttonStyles = StyleSheet.create({
         container: {
-            width: '80%',
+            width: '90%',
+            marginLeft: 'auto',
+            marginRight: 'auto',
             backgroundColor: '#DFE0EB',
             display: 'flex',
             flexDirection: 'row',
