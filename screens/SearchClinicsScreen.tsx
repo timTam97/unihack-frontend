@@ -15,7 +15,7 @@ const DATA: {id: number, title: string, address: string, openingTime: string, cl
   },
   {
     id: 2,
-    title: 'Albert Road General Practice',
+    title: 'test',
     address: '38 Albert Rd, South Melbourne VIC',
     openingTime: '9:00am',
     closingTime: '10:00pm'
@@ -64,10 +64,10 @@ const DATA: {id: number, title: string, address: string, openingTime: string, cl
   },
 ];
 
-const SearchClinicsScreen = (navigation: any) => {
+const SearchClinicsScreen = ({navigation}) => {
 
-  function selectClinic(place: string) {
-    navigation.navigate('ClinicScreen', {place: place});
+  function selectClinic(title: string) {    
+    navigation.navigate('Clinic', {place: title});
   }
 
   const [search, setSearch] = useState("");
@@ -76,9 +76,9 @@ const SearchClinicsScreen = (navigation: any) => {
     setSearch(search);
   };
 
-  const Item = ({ title, address, openingTime, closingTime  }) => (
+  const Item = ({ id, title, address, openingTime, closingTime  }) => (
     <TouchableRipple style={styles.boxes}
-    onPress={() => selectClinic('Albert Road General Practice')}
+    onPress={() => selectClinic(title)}
     borderless={true}>
       <View style={{display: 'flex', flexDirection: 'row'}}>
         <View style={{flex: 1}}>
@@ -204,7 +204,6 @@ const styles = StyleSheet.create({
   boxImage: {
     width: 80,
     height: 80,
-    // marginTop: 10
   },
   openClosed: {
     fontFamily: 'Lato_700Bold',
