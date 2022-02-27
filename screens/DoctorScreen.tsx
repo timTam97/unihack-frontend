@@ -6,7 +6,7 @@ import { Divider } from "react-native-elements";
 import { TouchableRipple } from 'react-native-paper';
 
 const DATES = [
-    { date: 'Today'},
+    // { date: 'Today'},
     { date: 'Tomorrow'},
     { date: 'Pick a date'},
 ];
@@ -75,6 +75,12 @@ const DoctorScreen = ({navigation, route}) => {
 
         {/* <View style={styles.container}> */}
         <View style={{paddingBottom: 20, backgroundColor: '#F1F1F4', flexDirection: 'row', alignContent: 'center'}}>
+            <TouchableRipple 
+                    style={styles.boxesToday} 
+                    onPress={() => makeBooking('nice')}
+            >
+                <Text style={styles.dateToday}>Today</Text>
+            </TouchableRipple>
             {DATES.map((value, index) => {
                 return dateViews(value);
             })}
@@ -131,6 +137,12 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#101010'
   },
+  dateToday: {
+    fontFamily: 'Lato_700Bold',
+    fontSize: 14,
+    textAlign: 'center',
+    color: '#ffffff'
+  },
   boxes: {
     width: Dimensions.get('window').width / 3.5,
     shadowColor: '#e0e0ec',
@@ -148,6 +160,23 @@ const styles = StyleSheet.create({
     paddingRight: 5,
     backgroundColor: '#FFFFFF',
     color: '#FFFFFF'
+  },
+  boxesToday: {
+    width: Dimensions.get('window').width / 3.5,
+    shadowColor: '#e0e0ec',
+    shadowOffset: {width: 1, height: 0},
+    shadowOpacity: 0.7,
+    shadowRadius: 30,
+    elevation: 5,
+    marginLeft: 10,
+    borderRadius: 15,
+    marginTop: 10,
+    height: 'auto',
+    paddingTop: 10,
+    paddingBottom: 10,
+    paddingLeft: 5,
+    paddingRight: 5,
+    backgroundColor: '#11CB7D',
   },
   boxTitle: {
     fontFamily: 'Lato_700Bold',
