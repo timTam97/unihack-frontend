@@ -5,14 +5,26 @@ import { Text, View } from '../components/Themed';
 import { SearchBar } from 'react-native-elements';
 import { TouchableRipple } from 'react-native-paper';
 
-const DATA: {id: number, title: string, address: string, image: NodeRequire, openingTime: string, closingTime: string}[] = [
+const DATA: {id: number, title: string, address: string, image: NodeRequire, openingTime: string, closingTime: string, phoneNumber: string, website: string, practitioners: Array<Object>}[] = [
   {
     id: 1,
     title: 'Albert Road General Practice',
     address: '38 Albert Rd, South Melbourne VIC',
     image: require('../assets/images/albert-road-gp.jpg'),
     openingTime: '9:00am',
-    closingTime: '10:00pm'
+    closingTime: '10:00pm',
+    phoneNumber: '(03) 9111 8959',
+    website: 'albertroadgp.com.au',
+    practitioners: [
+      {
+        'name': 'Dr Jayden Lee',
+        'role': 'General Practitioner',
+        'gender': 'Male',
+        'address': '38 Albert Rd, South Melbourne VIC',
+        'phoneNumber': '(03) 9111 8959',
+        'bio': 'Dr Jayden Lee has been working for 15 years as a General Practitioner and his areas of interest are Paediatrics, Obstetrics and Mental Health.'
+      }
+    ]
   },
   {
     id: 2,
@@ -20,7 +32,19 @@ const DATA: {id: number, title: string, address: string, image: NodeRequire, ope
     address: '38 Albert Rd, South Melbourne VIC',
     image: require('../assets/images/download.png'),
     openingTime: '9:00am',
-    closingTime: '10:00pm'
+    closingTime: '10:00pm',
+    phoneNumber: '(03) 9111 8959',
+    website: 'albertroadgp.com.au',
+    practitioners: [
+      {
+        'name': 'Dr Jayden Lee',
+        'role': 'General Practitioner',
+        'gender': 'Male',
+        'address': '38 Albert Rd, South Melbourne VIC',
+        'phoneNumber': '(03) 9111 8959',
+        'bio': 'Dr Jayden Lee has been working for 15 years as a General Practitioner and his areas of interest are Paediatrics, Obstetrics and Mental Health.'
+      }
+    ]
   },
   {
     id: 3,
@@ -28,7 +52,19 @@ const DATA: {id: number, title: string, address: string, image: NodeRequire, ope
     address: '38 Albert Rd, South Melbourne VIC',
     image: require('../assets/images/albert-road-gp.jpg'),
     openingTime: '9:00am',
-    closingTime: '10:00pm'
+    closingTime: '10:00pm',
+    phoneNumber: '(03) 9111 8959',
+    website: 'albertroadgp.com.au',
+    practitioners: [
+      {
+        'name': 'Dr Jayden Lee',
+        'role': 'General Practitioner',
+        'gender': 'Male',
+        'address': '38 Albert Rd, South Melbourne VIC',
+        'phoneNumber': '(03) 9111 8959',
+        'bio': 'Dr Jayden Lee has been working for 15 years as a General Practitioner and his areas of interest are Paediatrics, Obstetrics and Mental Health.'
+      }
+    ]
   },
   {
     id: 4,
@@ -36,7 +72,19 @@ const DATA: {id: number, title: string, address: string, image: NodeRequire, ope
     address: '38 Albert Rd, South Melbourne VIC',
     image: require('../assets/images/albert-road-gp.jpg'),
     openingTime: '9:00am',
-    closingTime: '10:00pm'
+    closingTime: '10:00pm',
+    phoneNumber: '(03) 9111 8959',
+    website: 'albertroadgp.com.au',
+    practitioners: [
+      {
+        'name': 'Dr Jayden Lee',
+        'role': 'General Practitioner',
+        'gender': 'Male',
+        'address': '38 Albert Rd, South Melbourne VIC',
+        'phoneNumber': '(03) 9111 8959',
+        'bio': 'Dr Jayden Lee has been working for 15 years as a General Practitioner and his areas of interest are Paediatrics, Obstetrics and Mental Health.'
+      }
+    ]
   },
   {
     id: 5,
@@ -44,7 +92,19 @@ const DATA: {id: number, title: string, address: string, image: NodeRequire, ope
     address: '38 Albert Rd, South Melbourne VIC',
     image: require('../assets/images/albert-road-gp.jpg'),
     openingTime: '9:00am',
-    closingTime: '10:00pm'
+    closingTime: '10:00pm',
+    phoneNumber: '(03) 9111 8959',
+    website: 'albertroadgp.com.au',
+    practitioners: [
+      {
+        'name': 'Dr Jayden Lee',
+        'role': 'General Practitioner',
+        'gender': 'Male',
+        'address': '38 Albert Rd, South Melbourne VIC',
+        'phoneNumber': '(03) 9111 8959',
+        'bio': 'Dr Jayden Lee has been working for 15 years as a General Practitioner and his areas of interest are Paediatrics, Obstetrics and Mental Health.'
+      }
+    ]
   },
   {
     id: 6,
@@ -52,7 +112,19 @@ const DATA: {id: number, title: string, address: string, image: NodeRequire, ope
     address: '38 Albert Rd, South Melbourne VIC',
     image: require('../assets/images/albert-road-gp.jpg'),
     openingTime: '9:00am',
-    closingTime: '10:00pm'
+    closingTime: '10:00pm',
+    phoneNumber: '(03) 9111 8959',
+    website: 'albertroadgp.com.au',
+    practitioners: [
+      {
+        'name': 'Dr Jayden Lee',
+        'role': 'General Practitioner',
+        'gender': 'Male',
+        'address': '38 Albert Rd, South Melbourne VIC',
+        'phoneNumber': '(03) 9111 8959',
+        'bio': 'Dr Jayden Lee has been working for 15 years as a General Practitioner and his areas of interest are Paediatrics, Obstetrics and Mental Health.'
+      }
+    ]
   },
   {
     id: 7,
@@ -60,7 +132,19 @@ const DATA: {id: number, title: string, address: string, image: NodeRequire, ope
     address: '38 Albert Rd, South Melbourne VIC',
     image: require('../assets/images/albert-road-gp.jpg'),
     openingTime: '9:00am',
-    closingTime: '10:00pm'
+    closingTime: '10:00pm',
+    phoneNumber: '(03) 9111 8959',
+    website: 'albertroadgp.com.au',
+    practitioners: [
+      {
+        'name': 'Dr Jayden Lee',
+        'role': 'General Practitioner',
+        'gender': 'Male',
+        'address': '38 Albert Rd, South Melbourne VIC',
+        'phoneNumber': '(03) 9111 8959',
+        'bio': 'Dr Jayden Lee has been working for 15 years as a General Practitioner and his areas of interest are Paediatrics, Obstetrics and Mental Health.'
+      }
+    ]
   },
   {
     id: 8,
@@ -68,14 +152,26 @@ const DATA: {id: number, title: string, address: string, image: NodeRequire, ope
     address: '38 Albert Rd, South Melbourne VIC',
     image: require('../assets/images/albert-road-gp.jpg'),
     openingTime: '9:00am',
-    closingTime: '10:00pm'
+    closingTime: '10:00pm',
+    phoneNumber: '(03) 9111 8959',
+    website: 'albertroadgp.com.au',
+    practitioners: [
+      {
+        'name': 'Dr Jayden Lee',
+        'role': 'General Practitioner',
+        'gender': 'Male',
+        'address': '38 Albert Rd, South Melbourne VIC',
+        'phoneNumber': '(03) 9111 8959',
+        'bio': 'Dr Jayden Lee has been working for 15 years as a General Practitioner and his areas of interest are Paediatrics, Obstetrics and Mental Health.'
+      }
+    ]
   },
 ];
 
 const SearchClinicsScreen = ({navigation}) => {
 
-  function selectClinic(title: string, address: string, image: NodeRequire, openingTime: string, closingTime: string) {    
-    navigation.navigate('Clinic', {title: title, address: address, image: image, openingTime: openingTime, closingTime: closingTime});
+  function selectClinic(title: string, address: string, image: NodeRequire, openingTime: string, closingTime: string, phoneNumber: string, website: string, practitioners: Array<Object>) {    
+    navigation.navigate('Clinic', {title: title, address: address, image: image, openingTime: openingTime, closingTime: closingTime, phoneNumber: phoneNumber, website: website, practitioners: practitioners});
   }
 
   const [search, setSearch] = useState("");
@@ -84,9 +180,9 @@ const SearchClinicsScreen = ({navigation}) => {
     setSearch(search);
   };
 
-  const Item = ({ id, title, address, image, openingTime, closingTime  }) => (
+  const Item = ({ id, title, address, image, openingTime, closingTime, phoneNumber, website, practitioners }) => (
     <TouchableRipple style={styles.boxes}
-    onPress={() => selectClinic(title, address, image, openingTime, closingTime)}
+    onPress={() => selectClinic(title, address, image, openingTime, closingTime, phoneNumber, website, practitioners)}
     borderless={true}>
       <View style={{display: 'flex', flexDirection: 'row'}}>
         <View style={{flex: 1}}>
@@ -120,6 +216,9 @@ const SearchClinicsScreen = ({navigation}) => {
         image={item.image}
         openingTime={item.openingTime}
         closingTime={item.closingTime}
+        phoneNumber={item.phoneNumber}
+        website={item.website}
+        practitioners={item.practitioners}
       />
     )
   };
