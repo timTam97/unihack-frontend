@@ -5,6 +5,8 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { Divider } from "react-native-elements";
 import { TouchableRipple } from 'react-native-paper';
 import Navigation from "../navigation";
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import { faMapLocationDot, faPhone } from '@fortawesome/free-solid-svg-icons'
 
 const DATES = [
     // { date: 'Today'},
@@ -21,8 +23,6 @@ const TIMES2 = [
     { time: '13:10'},
     { time: '13:30'},
 ]
-
-
 
 const DoctorScreen = ({navigation, route}) => {
     const makeBooking = (text) => {
@@ -58,15 +58,21 @@ const DoctorScreen = ({navigation, route}) => {
           <Text style={styles.title}>{route.params.doctor.name}</Text>
         </View>
         <Divider />
-        <View>
+        <View style={{flexDirection: 'row'}}>
           <Text style={styles.infoText}>{route.params.doctor.address}</Text>
+          <View style={{marginTop: 15, flex: 1}}>
+            <FontAwesomeIcon size={ 28 } color={ '#11CB7D' } icon={ faMapLocationDot } />
+          </View>
         </View>
         <Divider style={{marginTop: 20}}/>
-        <View>
+        <View style={{flexDirection: 'row'}}>
           <Text style={styles.infoText}>{route.params.doctor.phoneNumber}</Text>
+          <View style={{marginTop: 15, flex: 1}}>
+            <FontAwesomeIcon size={ 28 } color={ '#11CB7D' } icon={ faPhone } />
+          </View>
         </View>
         <Divider style={{marginTop: 20}}/>
-        <View>
+        <View style={{flexDirection: 'row'}}>
           <Text style={styles.infoText}>{route.params.doctor.bio}</Text>
         </View>
       </View>      
@@ -222,6 +228,7 @@ const styles = StyleSheet.create({
   infoText: {
     paddingTop: '5%',
     fontSize: 16,
+    flex: 8
   }
 });
 
