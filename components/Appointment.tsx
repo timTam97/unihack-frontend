@@ -11,9 +11,19 @@ type Props = {
     clinic: string,
     doctor: string
 }
+function formatAMPM(date) {
+    var hours = date.getHours();
+    var minutes = date.getMinutes();
+    var ampm = hours >= 12 ? 'pm' : 'am';
+    hours = hours % 12;
+    hours = hours ? hours : 12; // the hour '0' should be '12'
+    minutes = minutes < 10 ? '0'+minutes : minutes;
+    var strTime = hours + ':' + minutes + ' ' + ampm;
+    return strTime;
+  }
 export function Appointment({color, onClick1, onClick2, time, clinic, doctor}: Props) {
     let months = [ "January", "February", "March", "April", "May", "June",
-    "July", "August", "September", "October", "November", "December" ]
+    "July", "August", "September", "October", "November", "December"]
     let theTime = new Date(time)
     console.log({color, time, clinic, doctor})
     
@@ -25,11 +35,11 @@ export function Appointment({color, onClick1, onClick2, time, clinic, doctor}: P
             </View>
             <View style={buttonStyles.c}>
             <Text style={buttonStyles.c1}>{clinic}</Text>
-            <Text style={buttonStyles.c2}>{theTime.getHours()}:{theTime.getMinutes()} {theTime.getHours() >= 12 ? 'pm' : 'am'}</Text>
+            <Text style={buttonStyles.c2}>{formatAMPM(theTime)}</Text>
             <Text style={buttonStyles.c3}>{doctor}</Text>
             </View>
             <View style={buttonStyles.r}>
-            <TouchableOpacity style={buttonStyles.r1}>
+            <TouchableOpacity style={buttonStyles.r1} onPress={() => onClick2()}>
             <Image source={phoneStensilPhoto} style={{...buttonStyles.r2, backgroundColor: color}}/>
             </TouchableOpacity>
             </View>

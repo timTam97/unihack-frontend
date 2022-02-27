@@ -22,7 +22,7 @@ export default function HomeScreen({ navigation }: Props) {
       let raw_results = await fetch('https://iasrapy4gj.execute-api.ap-southeast-2.amazonaws.com/listpatients');
       let results = await raw_results.json();
       // console.log(results.filter((a) => a.patientName == user))
-      setAppointments(results.filter((a) => a.patientName == user))
+      setAppointments(results.sort((a,b) => a.timeCreated - b.timeCreated).filter((a) => a.patientName == user))
       setRefreshing(false)
 
   }
@@ -30,6 +30,7 @@ export default function HomeScreen({ navigation }: Props) {
     () => {refreshList().catch(() => 'a')}
     , []
   )
+ 
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.title_container}>
@@ -53,11 +54,11 @@ export default function HomeScreen({ navigation }: Props) {
           return (
             <Appointment 
               color={['#11CB7D', '#476955', '#A1ECBF'][a.index % 3]}
-              onClick1={() => {navigation.navigate('VirtualQueue', {appointmentId: a.item.entryId})}} 
+              onClick1={() => {navigation.navigate('AppointmentDetails', {appointmentId: a.item.entryId})}} 
               onClick2={() => {}}  
               time={a.item.timeCreated} 
-              clinic={'Albert Road Mental clinic'} 
-              doctor={'Dr. Adbul Khan'}/>
+              clinic={'Albert Road General Practise'} 
+              doctor={'Dr. Jayden Lee'}/>
           )
         }
         }
