@@ -4,8 +4,8 @@ import { Text, View } from '../components/Themed';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { Divider } from "react-native-elements";
 import { TouchableRipple } from 'react-native-paper';
-
-
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import { faMapLocationDot, faPhone } from '@fortawesome/free-solid-svg-icons'
 
 const ClinicScreen = ({navigation, route}) => {
   
@@ -22,15 +22,21 @@ const ClinicScreen = ({navigation, route}) => {
           <Text style={styles.title}>{route.params.title}</Text>
         </View>
         <Divider />
-        <View>
+        <View style={{flexDirection: 'row'}}>
           <Text style={styles.infoText}>{route.params.address}</Text>
+          <View style={{marginTop: 15, flex: 1}}>
+            <FontAwesomeIcon size={ 28 } color={ '#11CB7D' } icon={ faMapLocationDot } />
+          </View>
         </View>
         <Divider style={{marginTop: 20}}/>
-        <View>
+        <View style={{flexDirection: 'row'}}>
           <Text style={styles.infoText}>{route.params.phoneNumber}</Text>
+          <View style={{marginTop: 15, flex: 1}}>
+            <FontAwesomeIcon size={ 28 } color={ '#11CB7D' } icon={ faPhone } />
+          </View>
         </View>
         <Divider style={{marginTop: 20}}/>
-        <View>
+        <View style={{flexDirection: 'row'}}>
           <Text style={styles.infoText}>Website: <Text style={{ textDecorationLine: 'underline', color: '#11CB7D'}}>{route.params.website}</Text></Text>
         </View>
       </View>      
@@ -128,6 +134,7 @@ const styles = StyleSheet.create({
     paddingLeft: 20,
     paddingRight: 20,
     backgroundColor: '#FFFFFF',
+    height: 'auto'
   },
   bottomContainer: {
     flex: 4,
@@ -138,6 +145,7 @@ const styles = StyleSheet.create({
   infoText: {
     paddingTop: '5%',
     fontSize: 16,
+    flex: 8
   }
 });
 

@@ -19,7 +19,44 @@ const DATA: {id: number, title: string, address: string, image: NodeRequire, ope
       {
         'name': 'Dr Jayden Lee',
         'role': 'General Practitioner',
+        'image': 'require(../assets/images/albert-road-gp.jpg)',
         'gender': 'Male',
+        'address': '38 Albert Rd, South Melbourne VIC',
+        'phoneNumber': '(03) 9111 8959',
+        'bio': 'Dr Jayden Lee has been working for 15 years as a General Practitioner and his areas of interest are Paediatrics, Obstetrics and Mental Health.'
+      },
+      {
+        'name': 'Dr Eddie Tang',
+        'role': 'General Practitioner',
+        'image': 'require(../assets/images/albert-road-gp.jpg)',
+        'gender': 'Male',
+        'address': '38 Albert Rd, South Melbourne VIC',
+        'phoneNumber': '(03) 9111 8959',
+        'bio': 'Dr Jayden Lee has been working for 15 years as a General Practitioner and his areas of interest are Paediatrics, Obstetrics and Mental Health.'
+      },
+      {
+        'name': 'Dr Marcus Lim',
+        'role': 'General Practitioner',
+        'image': 'require(../assets/images/albert-road-gp.jpg)',
+        'gender': 'Male',
+        'address': '38 Albert Rd, South Melbourne VIC',
+        'phoneNumber': '(03) 9111 8959',
+        'bio': 'Dr Jayden Lee has been working for 15 years as a General Practitioner and his areas of interest are Paediatrics, Obstetrics and Mental Health.'
+      },
+      {
+        'name': 'Dr Thim Samraj',
+        'role': 'General Practitioner',
+        'image': 'require(../assets/images/albert-road-gp.jpg)',
+        'gender': 'Male',
+        'address': '38 Albert Rd, South Melbourne VIC',
+        'phoneNumber': '(03) 9111 8959',
+        'bio': 'Dr Jayden Lee has been working for 15 years as a General Practitioner and his areas of interest are Paediatrics, Obstetrics and Mental Health.'
+      },
+      {
+        'name': 'Dr Chelsea Lee',
+        'role': 'General Practitioner',
+        'image': 'require(../assets/images/albert-road-gp.jpg)',
+        'gender': 'Female',
         'address': '38 Albert Rd, South Melbourne VIC',
         'phoneNumber': '(03) 9111 8959',
         'bio': 'Dr Jayden Lee has been working for 15 years as a General Practitioner and his areas of interest are Paediatrics, Obstetrics and Mental Health.'
@@ -39,7 +76,44 @@ const DATA: {id: number, title: string, address: string, image: NodeRequire, ope
       {
         'name': 'Dr Jayden Lee',
         'role': 'General Practitioner',
+        'image': 'require(../assets/images/albert-road-gp.jpg)',
         'gender': 'Male',
+        'address': '38 Albert Rd, South Melbourne VIC',
+        'phoneNumber': '(03) 9111 8959',
+        'bio': 'Dr Jayden Lee has been working for 15 years as a General Practitioner and his areas of interest are Paediatrics, Obstetrics and Mental Health.'
+      },
+      {
+        'name': 'Dr Eddie Tang',
+        'role': 'General Practitioner',
+        'image': 'require(../assets/images/albert-road-gp.jpg)',
+        'gender': 'Male',
+        'address': '38 Albert Rd, South Melbourne VIC',
+        'phoneNumber': '(03) 9111 8959',
+        'bio': 'Dr Jayden Lee has been working for 15 years as a General Practitioner and his areas of interest are Paediatrics, Obstetrics and Mental Health.'
+      },
+      {
+        'name': 'Dr Marcus Lim',
+        'role': 'General Practitioner',
+        'image': 'require(../assets/images/albert-road-gp.jpg)',
+        'gender': 'Male',
+        'address': '38 Albert Rd, South Melbourne VIC',
+        'phoneNumber': '(03) 9111 8959',
+        'bio': 'Dr Jayden Lee has been working for 15 years as a General Practitioner and his areas of interest are Paediatrics, Obstetrics and Mental Health.'
+      },
+      {
+        'name': 'Dr Thim Samraj',
+        'role': 'General Practitioner',
+        'image': 'require(../assets/images/albert-road-gp.jpg)',
+        'gender': 'Male',
+        'address': '38 Albert Rd, South Melbourne VIC',
+        'phoneNumber': '(03) 9111 8959',
+        'bio': 'Dr Jayden Lee has been working for 15 years as a General Practitioner and his areas of interest are Paediatrics, Obstetrics and Mental Health.'
+      },
+      {
+        'name': 'Dr Chelsea Lee',
+        'role': 'General Practitioner',
+        'image': 'require(../assets/images/albert-road-gp.jpg)',
+        'gender': 'Female',
         'address': '38 Albert Rd, South Melbourne VIC',
         'phoneNumber': '(03) 9111 8959',
         'bio': 'Dr Jayden Lee has been working for 15 years as a General Practitioner and his areas of interest are Paediatrics, Obstetrics and Mental Health.'
@@ -59,7 +133,44 @@ const DATA: {id: number, title: string, address: string, image: NodeRequire, ope
       {
         'name': 'Dr Jayden Lee',
         'role': 'General Practitioner',
+        'image': 'require(../assets/images/albert-road-gp.jpg)',
         'gender': 'Male',
+        'address': '38 Albert Rd, South Melbourne VIC',
+        'phoneNumber': '(03) 9111 8959',
+        'bio': 'Dr Jayden Lee has been working for 15 years as a General Practitioner and his areas of interest are Paediatrics, Obstetrics and Mental Health.'
+      },
+      {
+        'name': 'Dr Eddie Tang',
+        'role': 'General Practitioner',
+        'image': 'require(../assets/images/albert-road-gp.jpg)',
+        'gender': 'Male',
+        'address': '38 Albert Rd, South Melbourne VIC',
+        'phoneNumber': '(03) 9111 8959',
+        'bio': 'Dr Jayden Lee has been working for 15 years as a General Practitioner and his areas of interest are Paediatrics, Obstetrics and Mental Health.'
+      },
+      {
+        'name': 'Dr Marcus Lim',
+        'role': 'General Practitioner',
+        'image': 'require(../assets/images/albert-road-gp.jpg)',
+        'gender': 'Male',
+        'address': '38 Albert Rd, South Melbourne VIC',
+        'phoneNumber': '(03) 9111 8959',
+        'bio': 'Dr Jayden Lee has been working for 15 years as a General Practitioner and his areas of interest are Paediatrics, Obstetrics and Mental Health.'
+      },
+      {
+        'name': 'Dr Thim Samraj',
+        'role': 'General Practitioner',
+        'image': 'require(../assets/images/albert-road-gp.jpg)',
+        'gender': 'Male',
+        'address': '38 Albert Rd, South Melbourne VIC',
+        'phoneNumber': '(03) 9111 8959',
+        'bio': 'Dr Jayden Lee has been working for 15 years as a General Practitioner and his areas of interest are Paediatrics, Obstetrics and Mental Health.'
+      },
+      {
+        'name': 'Dr Chelsea Lee',
+        'role': 'General Practitioner',
+        'image': 'require(../assets/images/albert-road-gp.jpg)',
+        'gender': 'Female',
         'address': '38 Albert Rd, South Melbourne VIC',
         'phoneNumber': '(03) 9111 8959',
         'bio': 'Dr Jayden Lee has been working for 15 years as a General Practitioner and his areas of interest are Paediatrics, Obstetrics and Mental Health.'
@@ -79,11 +190,47 @@ const DATA: {id: number, title: string, address: string, image: NodeRequire, ope
       {
         'name': 'Dr Jayden Lee',
         'role': 'General Practitioner',
+        'image': 'require(../assets/images/albert-road-gp.jpg)',
         'gender': 'Male',
         'address': '38 Albert Rd, South Melbourne VIC',
         'phoneNumber': '(03) 9111 8959',
-        'bio': 'Dr Jayden Lee has been working for 15 years as a General Practitioner and his areas of interest are Paediatrics, Obstetrics and Mental Health.',
-        
+        'bio': 'Dr Jayden Lee has been working for 15 years as a General Practitioner and his areas of interest are Paediatrics, Obstetrics and Mental Health.'
+      },
+      {
+        'name': 'Dr Eddie Tang',
+        'role': 'General Practitioner',
+        'image': 'require(../assets/images/albert-road-gp.jpg)',
+        'gender': 'Male',
+        'address': '38 Albert Rd, South Melbourne VIC',
+        'phoneNumber': '(03) 9111 8959',
+        'bio': 'Dr Jayden Lee has been working for 15 years as a General Practitioner and his areas of interest are Paediatrics, Obstetrics and Mental Health.'
+      },
+      {
+        'name': 'Dr Marcus Lim',
+        'role': 'General Practitioner',
+        'image': 'require(../assets/images/albert-road-gp.jpg)',
+        'gender': 'Male',
+        'address': '38 Albert Rd, South Melbourne VIC',
+        'phoneNumber': '(03) 9111 8959',
+        'bio': 'Dr Jayden Lee has been working for 15 years as a General Practitioner and his areas of interest are Paediatrics, Obstetrics and Mental Health.'
+      },
+      {
+        'name': 'Dr Thim Samraj',
+        'role': 'General Practitioner',
+        'image': 'require(../assets/images/albert-road-gp.jpg)',
+        'gender': 'Male',
+        'address': '38 Albert Rd, South Melbourne VIC',
+        'phoneNumber': '(03) 9111 8959',
+        'bio': 'Dr Jayden Lee has been working for 15 years as a General Practitioner and his areas of interest are Paediatrics, Obstetrics and Mental Health.'
+      },
+      {
+        'name': 'Dr Chelsea Lee',
+        'role': 'General Practitioner',
+        'image': 'require(../assets/images/albert-road-gp.jpg)',
+        'gender': 'Female',
+        'address': '38 Albert Rd, South Melbourne VIC',
+        'phoneNumber': '(03) 9111 8959',
+        'bio': 'Dr Jayden Lee has been working for 15 years as a General Practitioner and his areas of interest are Paediatrics, Obstetrics and Mental Health.'
       }
     ]
   },
@@ -100,7 +247,44 @@ const DATA: {id: number, title: string, address: string, image: NodeRequire, ope
       {
         'name': 'Dr Jayden Lee',
         'role': 'General Practitioner',
+        'image': 'require(../assets/images/albert-road-gp.jpg)',
         'gender': 'Male',
+        'address': '38 Albert Rd, South Melbourne VIC',
+        'phoneNumber': '(03) 9111 8959',
+        'bio': 'Dr Jayden Lee has been working for 15 years as a General Practitioner and his areas of interest are Paediatrics, Obstetrics and Mental Health.'
+      },
+      {
+        'name': 'Dr Eddie Tang',
+        'role': 'General Practitioner',
+        'image': 'require(../assets/images/albert-road-gp.jpg)',
+        'gender': 'Male',
+        'address': '38 Albert Rd, South Melbourne VIC',
+        'phoneNumber': '(03) 9111 8959',
+        'bio': 'Dr Jayden Lee has been working for 15 years as a General Practitioner and his areas of interest are Paediatrics, Obstetrics and Mental Health.'
+      },
+      {
+        'name': 'Dr Marcus Lim',
+        'role': 'General Practitioner',
+        'image': 'require(../assets/images/albert-road-gp.jpg)',
+        'gender': 'Male',
+        'address': '38 Albert Rd, South Melbourne VIC',
+        'phoneNumber': '(03) 9111 8959',
+        'bio': 'Dr Jayden Lee has been working for 15 years as a General Practitioner and his areas of interest are Paediatrics, Obstetrics and Mental Health.'
+      },
+      {
+        'name': 'Dr Thim Samraj',
+        'role': 'General Practitioner',
+        'image': 'require(../assets/images/albert-road-gp.jpg)',
+        'gender': 'Male',
+        'address': '38 Albert Rd, South Melbourne VIC',
+        'phoneNumber': '(03) 9111 8959',
+        'bio': 'Dr Jayden Lee has been working for 15 years as a General Practitioner and his areas of interest are Paediatrics, Obstetrics and Mental Health.'
+      },
+      {
+        'name': 'Dr Chelsea Lee',
+        'role': 'General Practitioner',
+        'image': 'require(../assets/images/albert-road-gp.jpg)',
+        'gender': 'Female',
         'address': '38 Albert Rd, South Melbourne VIC',
         'phoneNumber': '(03) 9111 8959',
         'bio': 'Dr Jayden Lee has been working for 15 years as a General Practitioner and his areas of interest are Paediatrics, Obstetrics and Mental Health.'
@@ -120,7 +304,44 @@ const DATA: {id: number, title: string, address: string, image: NodeRequire, ope
       {
         'name': 'Dr Jayden Lee',
         'role': 'General Practitioner',
+        'image': 'require(../assets/images/albert-road-gp.jpg)',
         'gender': 'Male',
+        'address': '38 Albert Rd, South Melbourne VIC',
+        'phoneNumber': '(03) 9111 8959',
+        'bio': 'Dr Jayden Lee has been working for 15 years as a General Practitioner and his areas of interest are Paediatrics, Obstetrics and Mental Health.'
+      },
+      {
+        'name': 'Dr Eddie Tang',
+        'role': 'General Practitioner',
+        'image': 'require(../assets/images/albert-road-gp.jpg)',
+        'gender': 'Male',
+        'address': '38 Albert Rd, South Melbourne VIC',
+        'phoneNumber': '(03) 9111 8959',
+        'bio': 'Dr Jayden Lee has been working for 15 years as a General Practitioner and his areas of interest are Paediatrics, Obstetrics and Mental Health.'
+      },
+      {
+        'name': 'Dr Marcus Lim',
+        'role': 'General Practitioner',
+        'image': 'require(../assets/images/albert-road-gp.jpg)',
+        'gender': 'Male',
+        'address': '38 Albert Rd, South Melbourne VIC',
+        'phoneNumber': '(03) 9111 8959',
+        'bio': 'Dr Jayden Lee has been working for 15 years as a General Practitioner and his areas of interest are Paediatrics, Obstetrics and Mental Health.'
+      },
+      {
+        'name': 'Dr Thim Samraj',
+        'role': 'General Practitioner',
+        'image': 'require(../assets/images/albert-road-gp.jpg)',
+        'gender': 'Male',
+        'address': '38 Albert Rd, South Melbourne VIC',
+        'phoneNumber': '(03) 9111 8959',
+        'bio': 'Dr Jayden Lee has been working for 15 years as a General Practitioner and his areas of interest are Paediatrics, Obstetrics and Mental Health.'
+      },
+      {
+        'name': 'Dr Chelsea Lee',
+        'role': 'General Practitioner',
+        'image': 'require(../assets/images/albert-road-gp.jpg)',
+        'gender': 'Female',
         'address': '38 Albert Rd, South Melbourne VIC',
         'phoneNumber': '(03) 9111 8959',
         'bio': 'Dr Jayden Lee has been working for 15 years as a General Practitioner and his areas of interest are Paediatrics, Obstetrics and Mental Health.'
@@ -140,7 +361,44 @@ const DATA: {id: number, title: string, address: string, image: NodeRequire, ope
       {
         'name': 'Dr Jayden Lee',
         'role': 'General Practitioner',
+        'image': 'require(../assets/images/albert-road-gp.jpg)',
         'gender': 'Male',
+        'address': '38 Albert Rd, South Melbourne VIC',
+        'phoneNumber': '(03) 9111 8959',
+        'bio': 'Dr Jayden Lee has been working for 15 years as a General Practitioner and his areas of interest are Paediatrics, Obstetrics and Mental Health.'
+      },
+      {
+        'name': 'Dr Eddie Tang',
+        'role': 'General Practitioner',
+        'image': 'require(../assets/images/albert-road-gp.jpg)',
+        'gender': 'Male',
+        'address': '38 Albert Rd, South Melbourne VIC',
+        'phoneNumber': '(03) 9111 8959',
+        'bio': 'Dr Jayden Lee has been working for 15 years as a General Practitioner and his areas of interest are Paediatrics, Obstetrics and Mental Health.'
+      },
+      {
+        'name': 'Dr Marcus Lim',
+        'role': 'General Practitioner',
+        'image': 'require(../assets/images/albert-road-gp.jpg)',
+        'gender': 'Male',
+        'address': '38 Albert Rd, South Melbourne VIC',
+        'phoneNumber': '(03) 9111 8959',
+        'bio': 'Dr Jayden Lee has been working for 15 years as a General Practitioner and his areas of interest are Paediatrics, Obstetrics and Mental Health.'
+      },
+      {
+        'name': 'Dr Thim Samraj',
+        'role': 'General Practitioner',
+        'image': 'require(../assets/images/albert-road-gp.jpg)',
+        'gender': 'Male',
+        'address': '38 Albert Rd, South Melbourne VIC',
+        'phoneNumber': '(03) 9111 8959',
+        'bio': 'Dr Jayden Lee has been working for 15 years as a General Practitioner and his areas of interest are Paediatrics, Obstetrics and Mental Health.'
+      },
+      {
+        'name': 'Dr Chelsea Lee',
+        'role': 'General Practitioner',
+        'image': 'require(../assets/images/albert-road-gp.jpg)',
+        'gender': 'Female',
         'address': '38 Albert Rd, South Melbourne VIC',
         'phoneNumber': '(03) 9111 8959',
         'bio': 'Dr Jayden Lee has been working for 15 years as a General Practitioner and his areas of interest are Paediatrics, Obstetrics and Mental Health.'
@@ -162,6 +420,42 @@ const DATA: {id: number, title: string, address: string, image: NodeRequire, ope
         'role': 'General Practitioner',
         'image': 'require(../assets/images/albert-road-gp.jpg)',
         'gender': 'Male',
+        'address': '38 Albert Rd, South Melbourne VIC',
+        'phoneNumber': '(03) 9111 8959',
+        'bio': 'Dr Jayden Lee has been working for 15 years as a General Practitioner and his areas of interest are Paediatrics, Obstetrics and Mental Health.'
+      },
+      {
+        'name': 'Dr Eddie Tang',
+        'role': 'General Practitioner',
+        'image': 'require(../assets/images/albert-road-gp.jpg)',
+        'gender': 'Male',
+        'address': '38 Albert Rd, South Melbourne VIC',
+        'phoneNumber': '(03) 9111 8959',
+        'bio': 'Dr Jayden Lee has been working for 15 years as a General Practitioner and his areas of interest are Paediatrics, Obstetrics and Mental Health.'
+      },
+      {
+        'name': 'Dr Marcus Lim',
+        'role': 'General Practitioner',
+        'image': 'require(../assets/images/albert-road-gp.jpg)',
+        'gender': 'Male',
+        'address': '38 Albert Rd, South Melbourne VIC',
+        'phoneNumber': '(03) 9111 8959',
+        'bio': 'Dr Jayden Lee has been working for 15 years as a General Practitioner and his areas of interest are Paediatrics, Obstetrics and Mental Health.'
+      },
+      {
+        'name': 'Dr Thim Samraj',
+        'role': 'General Practitioner',
+        'image': 'require(../assets/images/albert-road-gp.jpg)',
+        'gender': 'Male',
+        'address': '38 Albert Rd, South Melbourne VIC',
+        'phoneNumber': '(03) 9111 8959',
+        'bio': 'Dr Jayden Lee has been working for 15 years as a General Practitioner and his areas of interest are Paediatrics, Obstetrics and Mental Health.'
+      },
+      {
+        'name': 'Dr Chelsea Lee',
+        'role': 'General Practitioner',
+        'image': 'require(../assets/images/albert-road-gp.jpg)',
+        'gender': 'Female',
         'address': '38 Albert Rd, South Melbourne VIC',
         'phoneNumber': '(03) 9111 8959',
         'bio': 'Dr Jayden Lee has been working for 15 years as a General Practitioner and his areas of interest are Paediatrics, Obstetrics and Mental Health.'
