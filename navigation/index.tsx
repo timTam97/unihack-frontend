@@ -8,7 +8,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as React from 'react';
-import { ColorSchemeName, Pressable } from 'react-native';
+import { ColorSchemeName, Pressable, Image } from 'react-native';
 
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
@@ -26,6 +26,10 @@ import VirtualQueueScreen from '../screens/VirtualQueueScreen';
 import { BookStackPramList, HomeStackPramList, RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
 
+const home_symbol = require('../assets/images/Home_symbol.png');
+const book_symbol = require('../assets/images/Book_symbol.png');
+const appointments_symbol = require('../assets/images/Appointments_symbol.png');
+const user_symbol = require('../assets/images/User_symbol.png');
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
     <NavigationContainer
@@ -97,15 +101,34 @@ function BottomTabNavigator() {
         component={HomeStackScreen}
         options={({ navigation }: any) => ({
           title: 'Home',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          tabBarIcon: () => <Image source={home_symbol} style={{width:25, height: 25}} />,
         })}
+      />
+     <BottomTab.Screen
+        name="a"
+        component={BookStackScreen}
+        options={{
+          title: 'Appointments',
+          tabBarIcon: () => <Image source={appointments_symbol} style={{width:30, height: 25}} />,
+          // tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+        }}
       />
       <BottomTab.Screen
         name="BookStack"
         component={BookStackScreen}
         options={{
           title: 'Book',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          tabBarIcon: () => <Image source={book_symbol} style={{width:30, height: 25}} />,
+          // tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+        }}
+      />
+     <BottomTab.Screen
+        name="c"
+        component={BookStackScreen}
+        options={{
+          title: 'Profile',
+          tabBarIcon: () => <Image source={user_symbol} style={{width:25, height: 25}} />,
+          // tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
         }}
       />
     </BottomTab.Navigator>
@@ -121,7 +144,7 @@ function TabBarIcon(props: {
 }) {
   return <FontAwesome size={30} style={{ marginBottom: -3 }} {...props} />;
 }
-
+// function Icon(props: {})
 
 
 

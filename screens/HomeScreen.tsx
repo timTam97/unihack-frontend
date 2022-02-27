@@ -18,7 +18,7 @@ export default function HomeScreen({ navigation }: Props) {
   const [refresh, setRefreshing] = useState(false);
   const otherNavigation = useNavigation()
   async function refreshList() {
-      let user = 'Chi';
+      let user = 'Tim';
       let raw_results = await fetch('https://iasrapy4gj.execute-api.ap-southeast-2.amazonaws.com/listpatients');
       let results = await raw_results.json();
       // console.log(results.filter((a) => a.patientName == user))
@@ -27,7 +27,7 @@ export default function HomeScreen({ navigation }: Props) {
 
   }
   useEffect(
-    () => {refreshList().catch()}
+    () => {refreshList().catch(() => 'a')}
     , []
   )
   return (
@@ -52,8 +52,8 @@ export default function HomeScreen({ navigation }: Props) {
           // console.log(a);
           return (
             <Appointment 
-              color='#A1ECBF'
-              onClick1={() => {navigation.navigate('AppointmentDetails', {appointmentId: a.item.entryId})}} 
+              color={['#11CB7D', '#476955', '#A1ECBF'][a.index % 3]}
+              onClick1={() => {navigation.navigate('VirtualQueue', {appointmentId: a.item.entryId})}} 
               onClick2={() => {}}  
               time={a.item.timeCreated} 
               clinic={'Albert Road Mental clinic'} 
@@ -62,7 +62,7 @@ export default function HomeScreen({ navigation }: Props) {
         }
         }
         refreshing={refresh}
-        onRefresh={() => {setRefreshing(false); refreshList().catch()}}
+        onRefresh={() => {setRefreshing(false); refreshList().catch(() => 'a')}}
         keyExtractor={a => a.entryId}
       />
       

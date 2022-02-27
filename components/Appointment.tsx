@@ -51,6 +51,7 @@ export function Appointment({color, onClick1, onClick2, time, clinic, doctor}: P
             shadowOffset: { width: 3, height: 2 },
             shadowOpacity: 0.2,
             elevation: 5,
+            marginBottom: 10
         },
         l: {
             aspectRatio: 1,
