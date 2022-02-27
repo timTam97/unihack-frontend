@@ -73,7 +73,7 @@ function HomeStackScreen() {
 const BookStack = createNativeStackNavigator<BookStackPramList>();
 
 function BookStackScreen() {
-  return <BookStack.Navigator initialRouteName='ClinicCategory' screenOptions={{headerShown: false}}>
+  return <BookStack.Navigator initialRouteName='SearchClinics' screenOptions={{headerShown: false}}>
     <BookStack.Screen name='ClinicCategory' component={ClinicCategoryScreen} />
     <BookStack.Screen name='SearchClinics' component={SearchClinicsScreen} />
     <BookStack.Screen name='Clinic' component={ClinicScreen} />

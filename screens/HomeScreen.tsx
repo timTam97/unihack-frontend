@@ -38,7 +38,7 @@ export default function HomeScreen({ navigation }: Props) {
         <Text style={styles.title_subtitle}>How are you today?</Text>
       </View>
       {/* @ts-ignore */}
-      <TouchableOpacity onPress={() => {otherNavigation.navigate('Root', {screen: 'BookStack', params: {screen: 'ClinicCategory'}})}} activeOpacity={0.8}>
+      <TouchableOpacity onPress={() => {otherNavigation.navigate('Root', {screen: 'BookStack', params: {screen: 'SearchClinics'}})}} activeOpacity={0.8}>
         <Image style={styles.bookImage} source={buttonPhoto}/>
       </TouchableOpacity>
       {/* <Button title='AppointmentDetails' onPress={() => {navigation.navigate('AppointmentDetails', {appointmentId: 'a'})}}></Button>
