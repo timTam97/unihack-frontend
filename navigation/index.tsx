@@ -18,6 +18,7 @@ import AppointmentTimeScreen from '../screens/AppointmentTimeScreen';
 import SearchClinicsScreen from '../screens/SearchClinicsScreen';
 import ClinicScreen from '../screens/ClinicScreen';
 import ClinicCategoryScreen from '../screens/ClinicCategoryScreen';
+import DoctorScreen from '../screens/DoctorScreen';
 import HomeScreen from '../screens/HomeScreen';
 import IntroScreen from '../screens/IntroScreen';
 import ModalScreen from '../screens/ModalScreen';
@@ -72,6 +73,7 @@ function BookStackScreen() {
     <BookStack.Screen name='ClinicCategory' component={ClinicCategoryScreen} />
     <BookStack.Screen name='SearchClinics' component={SearchClinicsScreen} />
     <BookStack.Screen name='Clinic' component={ClinicScreen} />
+    <BookStack.Screen name='Doctor' component={DoctorScreen} />
     <BookStack.Screen name='AppointmentTime' component={AppointmentTimeScreen} />
     <BookStack.Screen name='AppointmentConfirmation' component={AppointmentConfirmationScreen} />
   </BookStack.Navigator>

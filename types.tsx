@@ -30,6 +30,7 @@ export type BookStackPramList = {
   ClinicCategory: undefined;
   SearchClinics: undefined;
   Clinic: undefined;
+  Doctor: undefined;
   AppointmentTime: {clinicId: string};
   AppointmentConfirmation: {clinicId: string, timestamp: number}
 }

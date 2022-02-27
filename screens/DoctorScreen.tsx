@@ -1,62 +1,64 @@
 import React, { Component, useState } from "react";
-import { StyleSheet, Dimensions, Image } from 'react-native';
+import { StyleSheet, Dimensions, Image, ScrollView } from 'react-native';
 import { Text, View } from '../components/Themed';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { Divider } from "react-native-elements";
 import { TouchableRipple } from 'react-native-paper';
 
+const DATES = [
+    { date: 'Today'},
+    { date: 'Tomorrow'},
+    { date: 'Pick a date'},
+];
 
+const DoctorScreen = ({navigation, route}) => {
 
-const ClinicScreen = ({navigation, route}) => {
+    const timeViews = (data) => {
+        return (
+          <View>
+            <Text>{data.date}</Text>
+          </View>
+        );
+      };
   
-  function selectDoctor(doctor: Object) {    
-    console.log(doctor);
-    navigation.navigate('Doctor', {doctor: doctor.data});
-  }
-
   return (
     <SafeAreaProvider style={styles.container}>
       <View style={styles.topContainer}>
-        <View style={{paddingTop: '10%', marginBottom: -20, display: "flex", flexDirection: 'row'}}>
-          <Image source={route.params.image} style={styles.image}></Image>
-          <Text style={styles.title}>{route.params.title}</Text>
+        <View style={{paddingTop: '10%', marginBottom: 10, display: "flex", flexDirection: 'row'}}>
+          <Image source={require('../assets/images/doctor-image.png')} style={styles.image}></Image>
+          <Text style={styles.title}>{route.params.doctor.name}</Text>
         </View>
         <Divider />
         <View>
-          <Text style={styles.infoText}>{route.params.address}</Text>
+          <Text style={styles.infoText}>{route.params.doctor.address}</Text>
         </View>
         <Divider style={{marginTop: 20}}/>
         <View>
-          <Text style={styles.infoText}>{route.params.phoneNumber}</Text>
+          <Text style={styles.infoText}>{route.params.doctor.phoneNumber}</Text>
         </View>
         <Divider style={{marginTop: 20}}/>
         <View>
-          <Text style={styles.infoText}>Website: <Text style={{ textDecorationLine: 'underline', color: '#11CB7D'}}>{route.params.website}</Text></Text>
+          <Text style={styles.infoText}>{route.params.doctor.bio}</Text>
         </View>
       </View>      
       <View style={styles.bottomContainer}>
-        <Text style={styles.bottomTitle}>Practitioners</Text>
-        {route.params.practitioners.map(function(data, index) {
-          return (
-            <TouchableRipple style={styles.boxes}
-            onPress={() => selectDoctor({data})}
-            borderless={true}>
-              <View style={{display: 'flex', flexDirection: 'row'}}>
-                <View style={{flex: 1}}>
-                  <Image
-                    key={data.id}
-                    source={require('../assets/images/doctor-image.png')}
-                    style={styles.boxImage}
-                  ></Image>
-                </View>
-                <View style={{flex: 3}}>
-                  <Text style={styles.boxTitle} key={data.id}>{data.name}</Text>
-                  <Text><Text style={styles.boxText} key={data.id}>{data.role}</Text>, <Text style={styles.boxText} key={index}>{data.gender}</Text></Text>
-                </View>
-              </View>
-            </TouchableRipple>
-          )
-        })}
+        <Text style={styles.bottomTitle}>Book Appointment</Text>
+        <Divider/>
+        <Text style={styles.secondaryBottomTitle}>Date</Text>
+
+        {/* <View style={styles.container}> */}
+        <ScrollView>
+            <View style={{flexDirection: 'row', flexWrap: 'wrap'}}>
+            {DATES.map((value, index) => {
+                return timeViews(value);
+            })}
+            </View>
+        </ScrollView>
+        {/* </View> */}
+        
+
+        <Divider/>
+        <Text style={styles.secondaryBottomTitle}>Open Slots</Text>
       </View>
     </SafeAreaProvider>
   );
@@ -68,13 +70,20 @@ const styles = StyleSheet.create({
   },
   title: {
     flex: 2,
-    marginTop: 45,
+    marginTop: 60,
     paddingLeft: '5%',
     fontSize: 24,
     fontWeight: 'bold',
   },
   bottomTitle: {
     fontSize: 20,
+    fontFamily: 'Lato_700Bold',
+    paddingLeft: 10,
+    paddingTop: 20,
+    paddingBottom: 15
+  },
+  secondaryBottomTitle: {
+    fontSize: 16,
     fontFamily: 'Lato_700Bold',
     paddingLeft: 10,
     paddingTop: 20,
@@ -118,19 +127,20 @@ const styles = StyleSheet.create({
     height: 80,
   },
   image: {
-    // paddingTop: '55%',
     flex: 1,
-    // aspectRatio: 1,
+    marginTop: 30,
+    width: 50,
+    height: 100,
     resizeMode: "contain",
  },
   topContainer: {
-    flex: 3,
+    height: 'auto',
     paddingLeft: 20,
     paddingRight: 20,
     backgroundColor: '#FFFFFF',
+    paddingBottom: 20
   },
   bottomContainer: {
-    flex: 4,
     backgroundColor: '#F1F1F4',
     paddingLeft: 10,
     paddingRight: 10,
@@ -141,4 +151,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default ClinicScreen;
+export default DoctorScreen;
